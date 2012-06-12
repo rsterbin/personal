@@ -1,0 +1,128 @@
+# Cross-project hosts
+Host pgdevdb
+	HostName pgdevdb.office.omniti.com
+	User reha
+
+Host warehouse
+	HostName warehouse.office.omniti.com
+	User reha
+
+# Aesculap
+Host aescdev
+	HostName aesculap.int.omniti.net
+	User reha
+
+Host aescstage
+	HostName aescstage.int.omniti.net
+	User reha
+
+# Taubman
+Host taubdev
+	HostName taubdev.office.omniti.com
+	User reha
+
+Host taub-redesign-sa
+	HostName taub-redesign-sa.int.omniti.net
+	User reha
+
+Host taubman-4
+	HostName taubman-4.int.omniti.net
+	User reha
+
+Host taubman-5
+	HostName taubman-5.int.omniti.net
+	User reha
+
+Host taubman-6
+	HostName taubman-6.int.omniti.net
+	User reha
+
+Host taubman-7
+	HostName taubman-7.int.omniti.net
+	User reha
+
+Host taubman-8
+	HostName taubman-8.int.omniti.net
+	User reha
+
+Host pe2web
+	HostName pe2web.pe.int.omniti.net
+	User reha
+
+Host taubman-admin
+	HostName taubman-admin.int.omniti.net
+	User reha
+
+# Wikipedia
+Host wikidev
+	HostName wikidev.int.omniti.net
+	User reha
+
+Host prototype
+	HostName prototype.wikimedia.org
+	User omniti
+	# See wiki for password
+
+Host wiki-gerrit
+	Hostname gerrit.wikimedia.org
+	Port 29418
+	User rsterbin
+
+# Rainbow Resource Center
+Host rrcdev
+	HostName rrcdev-il-1.int.omniti.net
+	User reha
+
+Host rrcprod-1
+	HostName rrcwww-il-1.int.omniti.net
+	User reha
+
+Host rrcprod-2
+	HostName rrcwww-il-2.int.omniti.net
+	User reha
+
+# Corpweb
+Host www-dev
+	HostName www-dev.office.omniti.com
+	User reha
+
+Host omniweb1
+	HostName omniweb1.int.omniti.net
+	User reha
+
+# OmniCMS
+Host omnicms
+	HostName omnicms.int.omniti.net
+	User reha
+
+# Jamsdaq
+Host jamsdaq-dev
+	HostName jamsdaq-dev.int.omniti.net
+	User reha
+
+Host jamsdaq-prod
+	HostName 50.56.126.19
+	User root
+	# See wiki for password
+
+# Alli
+Host allidev
+	HostName allidev.office.omniti.com
+	User reha
+
+# Kahjiki
+Host kahjiki
+	HostName 216.38.23.123
+	Port 2204
+	User kahjiki
+	# See notes for password
+
+# Personal hosts
+Host force
+	HostName force.stwing.upenn.edu
+	User rsterbin
+
+Host grey17
+	HostName grey17.paranoiacs.org
+	User rsterbin
+
