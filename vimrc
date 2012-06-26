@@ -388,8 +388,8 @@
 "
 " Editing and updating the vimrc:
 "
-  nnoremap <leader>u :source ~/.vimrc<CR>
-  nnoremap <leader>v :e ~/.vimrc<CR>
+  nnoremap <leader>uu :source ~/.vimrc<CR>
+  nnoremap <leader>vv :e ~/.vimrc<CR>
 "
 "
 
@@ -502,12 +502,12 @@ command! -range -nargs=* Sur call Surround(<f-args>)
 "
 command! -range -nargs=* Xtags call XMLSurround(<f-args>)
 "
+
 " ==============================================================================
 " 20060125 (rsterbin) Set up folds (but not in diff mode)
 " ==============================================================================
 "
 " Folds // fold when all methods are surrounded by fold markers
-"
   fun! FoldMarkedFiles()
     set foldmethod=marker
     set foldlevel=0
@@ -521,8 +521,8 @@ command! -range -nargs=* Xtags call XMLSurround(<f-args>)
     exe "normal ggzjzazz"
   endfun
 "
-" Folds // fold when methods are not surrounded by fold markers
 "
+" Folds // fold when methods are not surrounded by fold markers
   fun! FoldUnmarkedFiles()
     let php_folding=0
     hi Folded ctermfg=11 ctermbg=0
@@ -541,6 +541,7 @@ command! -range -nargs=* Xtags call XMLSurround(<f-args>)
     endtry
   endfun
 "
+
 " ==============================================================================
 " 20060127 (rsterbin) Set indention on xml and html files
 " ==============================================================================
@@ -552,6 +553,7 @@ command! -range -nargs=* Xtags call XMLSurround(<f-args>)
     setlocal shiftwidth=2
   endfun
 "
+
 " ==============================================================================
 " 20070820 (rsterbin) Add a docblock to a method
 " ==============================================================================
