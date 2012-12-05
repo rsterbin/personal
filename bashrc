@@ -18,7 +18,7 @@ export PAGER="less"
 
 umask 002
 # alias ls="ls --color=auto" # Not on Solaris
-# alias tocode="cd /weird/code/location" # If it's really weird
+# alias tocode="cd /some/code/location"
 
 # export VIM_PROJECT="Unknown" # single-project zones
 
