@@ -40,43 +40,21 @@ fun! g:Project_Open_HPHome()
         call add(fileparts, 'Zend')
         let fileparts = fileparts + parts[1:]
     elseif parts[0] == 'HPHome'
-        if parts[1] == 'Model' && len(parts) > 2
-            call add(fileparts, 'lib')
-            call add(fileparts, 'models')
-            let fileparts = fileparts + parts[2:]
-        elseif parts[1] == 'Front' && len(parts) > 2
-            if parts[2] == 'Form' && len(parts) > 3
-                call add(fileparts, 'sites')
-                call add(fileparts, 'frontend')
-                call add(fileparts, 'application')
-                call add(fileparts, 'forms')
-                let fileparts = fileparts + parts[3:]
-            else
-                call add(fileparts, 'sites')
-                call add(fileparts, 'frontend')
-                call add(fileparts, 'application')
-                call add(fileparts, 'library')
-                let fileparts = fileparts + parts[3:]
-            endif
-        elseif parts[1] == 'Admin' && len(parts) > 2
-            if parts[2] == 'Form' && len(parts) > 3
-                call add(fileparts, 'sites')
-                call add(fileparts, 'admin')
-                call add(fileparts, 'application')
-                call add(fileparts, 'forms')
-                let fileparts = fileparts + parts[3:]
-            else
-                call add(fileparts, 'sites')
-                call add(fileparts, 'admin')
-                call add(fileparts, 'application')
-                call add(fileparts, 'library')
-                let fileparts = fileparts + parts[3:]
-            endif
-        else
-            call add(fileparts, 'lib')
-            call add(fileparts, 'hphome')
-            let fileparts = fileparts + parts[1:]
-        endif
+        call add(fileparts, 'lib')
+        call add(fileparts, 'HPHome')
+        let fileparts = fileparts + parts[1:]
+    elseif parts[0] == 'HPAdmin'
+        call add(fileparts, 'sites')
+        call add(fileparts, 'admin')
+        call add(fileparts, 'application')
+        call add(fileparts, 'lib')
+        let fileparts = fileparts + parts[1:]
+    elseif parts[0] == 'HPFront'
+        call add(fileparts, 'sites')
+        call add(fileparts, 'frontend')
+        call add(fileparts, 'application')
+        call add(fileparts, 'lib')
+        let fileparts = fileparts + parts[1:]
     else
         call add(fileparts, 'lib')
         let fileparts = fileparts + parts
