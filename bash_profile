@@ -19,6 +19,7 @@ PATH="${PATH}:/opt/pgsql842/bin"
 MANPATH="/usr/bin/man"
 MANPATH="${PATH}:/usr/share/man"
 MANPATH="${PATH}:/opt/omni/share/man"
+MANPATH="${PATH}:/opt/omni/man"
 export PATH MANPATH
 
 # Fixes the term on iTerm
