@@ -1,0 +1,12 @@
+[user]
+	email = reha@omniti.com
+	name = Reha Sterbin
+
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+
+[color]
+	ui = true
+
