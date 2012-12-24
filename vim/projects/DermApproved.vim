@@ -1,10 +1,10 @@
 
 " Project info
-let g:project_info['Wikipedia'] = {
-    \   'directory' : [ 'mediawiki', 'wiki-commit', 'wiki-internal', 'wiki-external' ],
-    \   'open_func' : 'g:Project_Open_Wikipedia',
-    \   'category'  : 'MediaWiki',
-    \   'package'   : 'ArticleFeedback',
+let g:project_info['DermApproved'] = {
+    \   'directory' : [ 'dermapproved' ],
+    \   'open_func' : 'g:Project_Open_DermApproved',
+    \   'category'  : 'DermApproved',
+    \   'package'   : '',
     \   'author'    : 'Reha Sterbin <reha@omniti.com>',
     \   'copyright' : '',
     \   'license'   : '',
@@ -13,10 +13,10 @@ let g:project_info['Wikipedia'] = {
     \}
 
 " Coding standards
-let g:project_info['Wikipedia']['coding_standards'] = {
+let g:project_info['DermApproved']['coding_standards'] = {
     \   'underscore_prefix'  : 'n',
     \   'docblocks'          : 'y',
-    \   'tabs'               : 'y',
+    \   'tabs'               : 'n',
     \   'spaces'             : 'n',
     \   'methodauthorline'   : 'n',
     \   'methodsinceline'    : 'n',
@@ -33,7 +33,7 @@ let g:project_info['Wikipedia']['coding_standards'] = {
     \}
 
 " Class finder function
-fun! g:Project_Open_Wikipedia()
+fun! g:Project_Open_DermApproved()
     let filepath = 'includes/' . substitute(@", '_', '/', 'g') . '.php'
     exe ':e ' . filepath
 endfun

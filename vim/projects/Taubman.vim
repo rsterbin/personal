@@ -19,6 +19,7 @@ let g:project_info['Taubman']['coding_standards'] = {
     \   'underscore_prefix'  : 'n',
     \   'docblocks'          : 'y',
     \   'tabs'               : 'n',
+    \   'spaces'             : 'y',
     \   'methodauthorline'   : 'n',
     \   'methodsinceline'    : 'n',
     \   'propertysinceline'  : 'n',

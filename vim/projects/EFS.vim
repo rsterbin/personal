@@ -18,6 +18,7 @@ let g:project_info['EFS']['coding_standards'] = {
     \   'underscore_prefix'  : 'y',
     \   'docblocks'          : 'y',
     \   'tabs'               : 'n',
+    \   'spaces'             : 'y',
     \   'methodauthorline'   : 'y',
     \   'methodsinceline'    : 'n',
     \   'propertysinceline'  : 'n',

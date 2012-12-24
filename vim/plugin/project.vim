@@ -137,7 +137,11 @@ fun! g:Project_DetectTabsVsSpaces()
     if g:project_info[cp]['coding_standards']['tabs'] == 'y'
         let b:project_tabsVsSpaces = "tabs"
     else
-        let b:project_tabsVsSpaces = "spaces"
+        if g:project_info[cp]['coding_standards']['spaces'] == 'y'
+            let b:project_tabsVsSpaces = "spaces"
+        else
+            let b:project_tabsVsSpaces = "maintain"
+        endif
     endif
     call g:Project_ToggleTabsVsSpaces(b:project_tabsVsSpaces)
 endfun
