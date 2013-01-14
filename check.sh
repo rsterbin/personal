@@ -49,6 +49,13 @@ if [ -n "$DIFF_SUBVERSION_CONFIG" ]; then
     echo "$DIFF_SUBVERSION_CONFIG"
 fi
 
+if [ -n "$DIFF_GIT_CONFIG" ]; then
+    echo "==========="
+    echo "Git Config:"
+    echo "==========="
+    echo "$DIFF_GIT_CONFIG"
+fi
+
 if [ -n "$DIFF_VIMRC" ]; then
     echo "======="
     echo "VIMRC:"
