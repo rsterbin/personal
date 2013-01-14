@@ -7,6 +7,7 @@ DIFF_BASH_PROFILE=`diff ~/.bash_profile bash_profile`
 DIFF_BASHRC=`diff ~/.bashrc bashrc`
 DIFF_SSH_CONFIG=`diff ~/.ssh/config ssh_config`
 DIFF_SUBVERSION_CONFIG=`diff ~/.subversion/config subversion_config`
+DIFF_GIT_CONFIG=`diff ~/.gitconfig gitconfig`
 DIFF_VIMRC=`diff ~/.vimrc vimrc`
 
 DIFF_VIM_DIR=""
