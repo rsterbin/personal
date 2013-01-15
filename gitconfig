@@ -1,12 +1,28 @@
 [user]
-	email = reha@omniti.com
-	name = Reha Sterbin
+    name = Reha Sterbin
+    email = reha@omniti.com
 
 [alias]
-	st = status
-	co = checkout
-	ci = commit
+    st = status
+    co = checkout
+    ci = commit
+    personal-profile = config user.email \"reha@sterbinsoftware.com\"
+    mediawiki-profile = config user.name \"rsterbin\"
 
 [color]
-	ui = true
+    ui = true
+
+[gitreview]
+    username = rsterbin
+    username = rsterbin
+    username = rsterbin
+
+[giggle]
+    main-window-maximized = false
+    main-window-geometry = 1460x817+109+212
+    history-view-vpane-position = 616
+    main-window-view = HistoryView
+    file-view-hpane-position = 364
+    file-view-vpane-position = 746
+
 
