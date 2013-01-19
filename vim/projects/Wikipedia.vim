@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['Wikipedia'] = {
-    \   'directory' : [ 'mediawiki', 'wiki-commit', 'wiki-internal', 'wiki-external' ],
-    \   'open_func' : 'g:Project_Open_Wikipedia',
-    \   'category'  : 'MediaWiki',
-    \   'package'   : 'ArticleFeedback',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : '',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['Wikipedia']['open_func'] = 'g:Project_Open_Wikipedia'
+let g:project_info['Wikipedia']['category']  = 'MediaWiki'
+let g:project_info['Wikipedia']['package']   = 'ArticleFeedback'
+let g:project_info['Wikipedia']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['Wikipedia']['copyright'] = ''
+let g:project_info['Wikipedia']['license']   = ''
+let g:project_info['Wikipedia']['link']      = ''
+let g:project_info['Wikipedia']['version']   = ''
 
 " Coding standards
 let g:project_info['Wikipedia']['coding_standards'] = {

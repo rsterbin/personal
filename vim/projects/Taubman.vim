@@ -1,18 +1,15 @@
 
 " Project info
-let g:project_info['Taubman'] = {
-    \   'directory' : [ 'taubman' ],
-    \   'init_func' : 'g:Project_Init_Taubman',
-    \   'open_func' : 'g:Project_Open_Taubman',
-    \   'dump_func' : 'g:Project_Dump_Taubman',
-    \   'category'  : 'Taubman',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : 'Copyright (c) 2010 OmnitTI',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['Taubman']['init_func'] = 'g:Project_Init_Taubman'
+let g:project_info['Taubman']['open_func'] = 'g:Project_Open_Taubman'
+let g:project_info['Taubman']['dump_func'] = 'g:Project_Dump_Taubman'
+let g:project_info['Taubman']['category']  = 'Taubman'
+let g:project_info['Taubman']['package']   = ''
+let g:project_info['Taubman']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['Taubman']['copyright'] = 'Copyright (c) 2010 OmnitTI'
+let g:project_info['Taubman']['license']   = ''
+let g:project_info['Taubman']['link']      = ''
+let g:project_info['Taubman']['version']   = ''
 
 " Coding standards
 let g:project_info['Taubman']['coding_standards'] = {

@@ -1,16 +1,12 @@
-" ==============================================================================
-" Build the project definition list
-" ==============================================================================
-let g:project_info = {}
-for f in split(glob('~/.vim/projects/*.vim'), '\n')
-    exe 'source' f
-endfor
+" vim: set foldlevel=0 foldmethod=marker:
 
-" ==============================================================================
-" Project detection
-" ==============================================================================
+" {{{ Function: FindDocblockVariable
 
-" Function: get a docblock variable
+" Look for a particular docblock variable in the file
+"
+" @param  string docvar the name of the variable (e.g., 'category')
+" @return string the value, if found
+"
 fun! g:FindDocblockVariable(docvar)
     call cursor(1, 1)
     let [foundLine, foundCol] = searchpos("@" . a:docvar, "n")
@@ -24,7 +20,13 @@ fun! g:FindDocblockVariable(docvar)
     endif
 endfun
 
-" Function: detect the project
+" }}}
+" {{{ Function: DetectProject
+
+" Detect the project of the current buffer
+"
+" @return string the current project
+"
 fun! g:DetectProject()
 
     " do we already have it?
@@ -36,10 +38,10 @@ fun! g:DetectProject()
     let category = g:FindDocblockVariable("category")
     let package = g:FindDocblockVariable("package")
     for p in keys(g:project_info)
-        if g:project_info[p]['category'] != '' && g:project_info[p]['category'] == category
+        if has_key(g:project_info[p], 'category') && g:project_info[p]['category'] == category
             call g:SetProject(p)
             return b:current_project
-        elseif g:project_info[p]['package'] != '' && g:project_info[p]['package'] == package
+        elseif has_key(g:project_info[p], 'package') && g:project_info[p]['package'] == package
             call g:SetProject(p)
             return b:current_project
         endif
@@ -54,12 +56,14 @@ fun! g:DetectProject()
     " check the path, for multiple-project working copies
     let fullpath = expand("%:p")
     for p in keys(g:project_info)
-        for dir in (g:project_info[p]['directory'])
-            if match(fullpath, dir) != -1
-                call g:SetProject(p)
-                return b:current_project
-            endif
-        endfor
+        if has_key(g:project_info[p], 'directory')
+            for dir in (g:project_info[p]['directory'])
+                if match(fullpath, dir) != -1
+                    call g:SetProject(p)
+                    return b:current_project
+                endif
+            endfor
+        endif
     endfor
 
     " give up
@@ -68,22 +72,36 @@ fun! g:DetectProject()
 
 endfun
 
-" Function: set the project directly
+" }}}
+" {{{ Function: SetProject
+
+" Sets the project directly
+"
+" @param string project the project name
+"
 fun! g:SetProject(project)
     let b:current_project = a:project
-    try
-        exec "call " . g:project_info[b:current_project]['init_func'] . "()"
-    catch
-    endtry
+    let filename = '~/.vim/projects/' . b:current_project . '.vim'
+    echo filename
+    " try
+        exec "source " . filename
+    " catch
+    " endtry
+    if has_key(g:project_info[b:current_project], 'init_func')
+        try
+            exec "call " . g:project_info[b:current_project]['init_func'] . "()"
+        catch
+        endtry
+    endif
 endfun
+
+" }}}
 
 " Call DetectProject() on read
 autocmd BufReadPost *.* :call g:DetectProject()
 
+" {{{ Tabs versus spaces
 
-" ==============================================================================
-" Tabs versus spaces
-" ==============================================================================
 " Function: replace leading whitespace with tabs (up to 12 levels)
 fun! g:Project_LeadingSpacesToTabs()
     try
@@ -154,9 +172,8 @@ else
 endif
 
 
-" ==============================================================================
-" Convenience functions
-" ==============================================================================
+" }}}
+" {{{ Convenience functions
 
 " Function: open the class file in the @ register
 fun! g:Project_OpenClassFile()
@@ -177,4 +194,6 @@ fun! g:Project_AddDumpLine()
         exec "call " . g:project_info['default']['dump_func'] . "()"
     endtry
 endfun
+
+" }}}
 

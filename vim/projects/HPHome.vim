@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['HPHome'] = {
-    \   'directory' : [ 'hphome' ],
-    \   'open_func' : 'g:Project_Open_HPHome',
-    \   'category'  : 'HPHome',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@sterbinsoftware.com>',
-    \   'copyright' : 'Copyright (c) 2011 Sterbin Software',
-    \   'license'   : '',
-    \   'link'      : 'http://www.sterbinsoftware.com/',
-    \   'version'   : 'DATE',
-    \}
+let g:project_info['HPHome']['open_func'] = 'g:Project_Open_HPHome'
+let g:project_info['HPHome']['category']  = 'HPHome'
+let g:project_info['HPHome']['package']   = ''
+let g:project_info['HPHome']['author']    = 'Reha Sterbin <reha@sterbinsoftware.com>'
+let g:project_info['HPHome']['copyright'] = 'Copyright (c) 2011 Sterbin Software'
+let g:project_info['HPHome']['license']   = ''
+let g:project_info['HPHome']['link']      = 'http://www.sterbinsoftware.com/'
+let g:project_info['HPHome']['version']   = 'DATE'
 
 " Coding standards
 let g:project_info['HPHome']['coding_standards'] = {

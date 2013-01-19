@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['DermApproved'] = {
-    \   'directory' : [ 'dermapproved' ],
-    \   'open_func' : 'g:Project_Open_DermApproved',
-    \   'category'  : 'DermApproved',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : '',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['DermApproved']['open_func'] = 'g:Project_Open_DermApproved'
+let g:project_info['DermApproved']['category']  = 'DermApproved'
+let g:project_info['DermApproved']['package']   = ''
+let g:project_info['DermApproved']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['DermApproved']['copyright'] = ''
+let g:project_info['DermApproved']['license']   = ''
+let g:project_info['DermApproved']['link']      = ''
+let g:project_info['DermApproved']['version']   = ''
 
 " Coding standards
 let g:project_info['DermApproved']['coding_standards'] = {

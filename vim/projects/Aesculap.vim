@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['Aesculap'] = {
-    \   'directory' : [ 'allisports' ],
-    \   'open_func' : 'g:Project_Open_Aesculap',
-    \   'category'  : '',
-    \   'package'   : 'Aesculap',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : 'Copyright (c) 2011 OmnitTI',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['Aesculap']['open_func'] = 'g:Project_Open_Aesculap'
+let g:project_info['Aesculap']['category']  = ''
+let g:project_info['Aesculap']['package']   = 'Aesculap'
+let g:project_info['Aesculap']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['Aesculap']['copyright'] = 'Copyright (c) 2011 OmnitTI'
+let g:project_info['Aesculap']['license']   = ''
+let g:project_info['Aesculap']['link']      = ''
+let g:project_info['Aesculap']['version']   = ''
 
 " Coding standards
 let g:project_info['Aesculap']['coding_standards'] = {
@@ -31,7 +28,6 @@ let g:project_info['Aesculap']['coding_standards'] = {
     \   'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
     \   'classdocblockorder' : [],
     \}
-
 
 " Class finder function
 fun! g:Project_Open_Aesculap()

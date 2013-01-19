@@ -1,17 +1,14 @@
 
 " Project info
-let g:project_info['EFS'] = {
-    \   'directory' : [ 'EFS2' ],
-    \   'open_func' : 'g:Project_Open_EFS',
-    \   'dump_func' : 'g:Project_Dump_EFS',
-    \   'category'  : '',
-    \   'package'   : 'EFS2',
-    \   'author'    : 'Reha Sterbin <rsterbin@efashionsolutions.com>',
-    \   'copyright' : '2008-2009 eFashionSoutions',
-    \   'license'   : '???',
-    \   'link'      : '???',
-    \   'version'   : 'Initial Release',
-    \}
+let g:project_info['EFS']['open_func'] = 'g:Project_Open_EFS'
+let g:project_info['EFS']['dump_func'] = 'g:Project_Dump_EFS'
+let g:project_info['EFS']['category']  = ''
+let g:project_info['EFS']['package']   = 'EFS2'
+let g:project_info['EFS']['author']    = 'Reha Sterbin <rsterbin@efashionsolutions.com>'
+let g:project_info['EFS']['copyright'] = '2008-2009 eFashionSoutions'
+let g:project_info['EFS']['license']   = '???'
+let g:project_info['EFS']['link']      = '???'
+let g:project_info['EFS']['version']   = 'Initial Release'
 
 " Coding standards
 let g:project_info['EFS']['coding_standards'] = {

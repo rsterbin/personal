@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['Alli'] = {
-    \   'directory' : [ 'allisports' ],
-    \   'open_func' : 'g:Project_Open_Alli',
-    \   'category'  : 'OmniTICMS',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : 'Copyright (c) 2010 OmnitTI',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['Alli']['open_func'] = 'g:Project_Open_Alli'
+let g:project_info['Alli']['category']  = 'OmniTICMS'
+let g:project_info['Alli']['package']   = ''
+let g:project_info['Alli']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['Alli']['copyright'] = 'Copyright (c) 2010 OmnitTI'
+let g:project_info['Alli']['license']   = ''
+let g:project_info['Alli']['link']      = ''
+let g:project_info['Alli']['version']   = ''
 
 " Coding standards
 let g:project_info['Alli']['coding_standards'] = {
@@ -31,7 +28,6 @@ let g:project_info['Alli']['coding_standards'] = {
     \   'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
     \   'classdocblockorder' : [ 'category', 'package', 'copyright' ],
     \}
-
 
 " Class finder function
 fun! g:Project_Open_Alli()

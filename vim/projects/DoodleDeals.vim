@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['DoodleDeals'] = {
-    \   'directory' : [ 'doodledeals' ],
-    \   'open_func' : 'g:Project_Open_DoodleDeals',
-    \   'category'  : 'DoodleDeals',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : 'Copyright (c) 2010 OmnitTI',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['DoodleDeals']['open_func'] = 'g:Project_Open_DoodleDeals'
+let g:project_info['DoodleDeals']['category']  = 'DoodleDeals'
+let g:project_info['DoodleDeals']['package']   = ''
+let g:project_info['DoodleDeals']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['DoodleDeals']['copyright'] = 'Copyright (c) 2010 OmnitTI'
+let g:project_info['DoodleDeals']['license']   = ''
+let g:project_info['DoodleDeals']['link']      = ''
+let g:project_info['DoodleDeals']['version']   = ''
 
 " Coding standards
 let g:project_info['DoodleDeals']['coding_standards'] = {

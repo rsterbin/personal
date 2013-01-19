@@ -1,18 +1,16 @@
 
 " Project info
-let g:project_info['default'] = {
-    \   'directory' : [],
-    \   'init_func' : 'g:Project_Init_Default',
-    \   'open_func' : 'g:Project_Open_Default',
-    \   'dump_func' : 'g:Project_Dump_Default',
-    \   'category'  : 'Default',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@sterbinsoftware.com>',
-    \   'copyright' : 'Copyright (c) 2011 Sterbin Software',
-    \   'license'   : '',
-    \   'link'      : 'http://www.sterbinsoftware.com/',
-    \   'version'   : 'DATE',
-    \}
+let g:project_info['default'] = {}
+let g:project_info['default']['init_func'] = 'g:Project_Init_Default'
+let g:project_info['default']['open_func'] = 'g:Project_Open_Default'
+let g:project_info['default']['dump_func'] = 'g:Project_Dump_Default'
+let g:project_info['default']['category']  = 'Default'
+let g:project_info['default']['package']   = ''
+let g:project_info['default']['author']    = 'Reha Sterbin <reha@sterbinsoftware.com>'
+let g:project_info['default']['copyright'] = 'Copyright (c) 2011 Sterbin Software'
+let g:project_info['default']['license']   = ''
+let g:project_info['default']['link']      = 'http://www.sterbinsoftware.com/'
+let g:project_info['default']['version']   = 'DATE'
 
 " Coding standards
 let g:project_info['default']['coding_standards'] = {

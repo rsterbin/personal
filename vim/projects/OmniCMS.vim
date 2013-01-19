@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['OmniCMS'] = {
-    \   'directory' : [ 'omnicms' ],
-    \   'open_func' : 'g:Project_Open_OmniCMS',
-    \   'category'  : 'OmniCMS',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : 'Copyright (c) 2010 OmnitTI',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['OmniCMS']['open_func'] = 'g:Project_Open_OmniCMS'
+let g:project_info['OmniCMS']['category']  = 'OmniCMS'
+let g:project_info['OmniCMS']['package']   = ''
+let g:project_info['OmniCMS']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['OmniCMS']['copyright'] = 'Copyright (c) 2010 OmnitTI'
+let g:project_info['OmniCMS']['license']   = ''
+let g:project_info['OmniCMS']['link']      = ''
+let g:project_info['OmniCMS']['version']   = ''
 
 " Coding standards
 let g:project_info['OmniCMS']['coding_standards'] = {

@@ -1,16 +1,13 @@
 
 " Project info
-let g:project_info['OmniTI-www'] = {
-    \   'directory' : [ 'corpweb' ],
-    \   'open_func' : 'g:Project_Open_OmniTIwww',
-    \   'category'  : 'OmniTI-www',
-    \   'package'   : '',
-    \   'author'    : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright' : 'Copyright (c) 2010 OmnitTI',
-    \   'license'   : '',
-    \   'link'      : '',
-    \   'version'   : '',
-    \}
+let g:project_info['OmniTI-www']['open_func'] = 'g:Project_Open_OmniTIwww'
+let g:project_info['OmniTI-www']['category']  = 'OmniTI-www'
+let g:project_info['OmniTI-www']['package']   = ''
+let g:project_info['OmniTI-www']['author']    = 'Reha Sterbin <reha@omniti.com>'
+let g:project_info['OmniTI-www']['copyright'] = 'Copyright (c) 2010 OmnitTI'
+let g:project_info['OmniTI-www']['license']   = ''
+let g:project_info['OmniTI-www']['link']      = ''
+let g:project_info['OmniTI-www']['version']   = ''
 
 " Coding standards
 let g:project_info['OmniTI-www']['coding_standards'] = {

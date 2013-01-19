@@ -296,7 +296,7 @@ nnoremap <leader>sp :call g:Project_ToggleTabsVsSpaces('spaces')<CR>
 nnoremap <leader>cp :let @" = expand('%')<CR>
 
 " }}}
-" {{{ Source scripts
+" {{{ Script and plugin configuration
 
 " keepcase.vim - substitue case-insensitively, keeping the case
 " intact
@@ -329,6 +329,51 @@ else
     " Source the explorer!
     source ~/.vim/plugin/minibufexpl.vim
 endif
+
+" Projects
+let g:project_info = {
+    \ 'Aesculap' : {
+    \   'directory' : [ 'aesculap' ],
+    \   'package'   : 'Aesculap',
+    \},
+    \ 'Alli' : {
+    \   'directory' : [ 'allisports' ],
+    \   'category'  : 'OmniTICMS',
+    \},
+    \ 'DermApproved' : {
+    \   'directory' : [ 'dermapproved' ],
+    \   'category'  : 'DermApproved',
+    \},
+    \ 'DoodleDeals' : {
+    \   'directory' : [ 'doodledeals' ],
+    \   'category'  : 'DoodleDeals',
+    \},
+    \ 'EFS' : {
+    \   'directory' : [ 'EFS2' ],
+    \   'package'   : 'EFS2',
+    \},
+    \ 'HPHome' : {
+    \   'directory' : [ 'hphome' ],
+    \   'category'  : 'HPHome',
+    \},
+    \ 'OmniCMS' : {
+    \   'directory' : [ 'omnicms' ],
+    \   'category'  : 'OmniCMS',
+    \},
+    \ 'OmniTI-www' : {
+    \   'directory' : [ 'corpweb' ],
+    \   'category'  : 'OmniTI-www',
+    \},
+    \ 'Taubman' : {
+    \   'directory' : [ 'taubman' ],
+    \   'category'  : 'Taubman',
+    \},
+    \ 'Wikipedia' : {
+    \   'directory' : [ 'mediawiki', 'wiki-commit', 'wiki-internal', 'wiki-external' ],
+    \   'category'  : 'MediaWiki',
+    \   'package'   : 'ArticleFeedback',
+    \},
+\}
 
 " }}}
 " {{{ General Editing - Reformatting Text
