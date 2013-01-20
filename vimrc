@@ -214,6 +214,13 @@ cnoremap <ESC>[C <Right>
 nnoremap <leader>uu :source ~/.vimrc<CR>
 nnoremap <leader>vv :e ~/.vimrc<CR>
 
+" Surround // Mappings
+vnoremap <Leader>s" :call Surround('"', '"')<CR>
+vnoremap <Leader>s( :call Surround('(', ')')<CR>
+vnoremap <Leader>s[ :call Surround('[', ']')<CR>
+vnoremap <Leader>s{ :call Surround('{', '}')<CR>
+vnoremap <Leader>sc :call Surround('/*', '*/')<CR>
+
 " 20050316 (rsterbin) Toggle text formatting:
 " House coding style at RTO calls for long lines; however, I don't
 " want to have to hand-wrap my English text.
@@ -303,41 +310,6 @@ nnoremap <leader>sp :call g:Project_ToggleTabsVsSpaces('spaces')<CR>
 nnoremap <leader>cp :let @" = expand('%')<CR>
 
 " }}}
-" {{{ Source scripts
-
-" keepcase.vim - substitue case-insensitively, keeping the case
-" intact
-
-source ~/.vim/scripts/keepcase.vim
-
-" MiniBufExplorer configuration
-
-if &diff
-else
-    " Configuration: Put the explorer on the right side
-    let g:miniBufExplVSplit = 30
-    " Configuration: Don't report anything but serious bugs
-    let g:miniBufExplorerDebugLevel = 0
-    " Configuration: Set the debug mode to write to a file
-    let g:miniBufExplorerDebugMode = 2
-    " Configuration: Always open the explorer
-    " let g:miniBufExplorerMoreThanOne = 1
-    " Mapping: get to the window
-    nnoremap <leader>mb :MiniBufExplorer<CR>
-    " Mapping: toggle the window
-    nnoremap <leader>mt :TMiniBufExplorer<CR>
-    " Mapping: update the window
-    nnoremap <leader>mu :UMiniBufExplorer<CR>
-    " Highlighting: set colors for edited/unedited files
-    hi MBENormal ctermfg=darkblue
-    hi MBEChanged ctermfg=darkgreen
-    hi MBEVisibleNormal ctermfg=magenta
-    hi MBEVisibleChanged ctermfg=magenta
-    " Source the explorer!
-    source ~/.vim/plugin/minibufexpl.vim
-endif
-
-" }}}
 " {{{ General Editing - Reformatting Text
 
 " NOTE: The following mapping require formatoptions to include 'r'
@@ -380,6 +352,44 @@ noremap ]] j0[[%/{<CR>
 noremap [] k$][%?}<CR>
 
 " }}}
+" {{{ Source scripts
+
+" keepcase.vim - substitue case-insensitively, keeping the case
+" intact
+source ~/.vim/scripts/keepcase.vim
+
+" }}}
+" {{{ Plugin configuration
+
+" MiniBufExplorer configuration
+if &diff
+else
+    " Configuration: Put the explorer on the right side
+    let g:miniBufExplVSplit = 30
+    " Configuration: Don't report anything but serious bugs
+    let g:miniBufExplorerDebugLevel = 0
+    " Configuration: Set the debug mode to write to a file
+    let g:miniBufExplorerDebugMode = 2
+    " Configuration: Always open the explorer
+    " let g:miniBufExplorerMoreThanOne = 1
+    " Mapping: get to the window
+    nnoremap <leader>mb :MiniBufExplorer<CR>
+    " Mapping: toggle the window
+    nnoremap <leader>mt :TMiniBufExplorer<CR>
+    " Mapping: update the window
+    nnoremap <leader>mu :UMiniBufExplorer<CR>
+    " Highlighting: set colors for edited/unedited files
+    hi MBENormal ctermfg=darkblue
+    hi MBEChanged ctermfg=darkgreen
+    hi MBEVisibleNormal ctermfg=magenta
+    hi MBEVisibleChanged ctermfg=magenta
+    " Source the explorer!
+    source ~/.vim/plugin/minibufexpl.vim
+endif
+
+" }}}
+" {{{ Functions
+
 " {{{ Surround visual selection with text - Tip #988
 
 " Surround // Main Function
@@ -411,13 +421,6 @@ fun! XMLSurround(tagname) range
     call Surround("<".a:tagname."\>", "</".a:tagname.">")
 endfun
 
-" Surround // Mappings
-vnoremap _" :call Surround('"', '"')<CR>
-vnoremap _( :call Surround('(', ')')<CR>
-vnoremap _[ :call Surround('[', ']')<CR>
-vnoremap _{ :call Surround('{', '}')<CR>
-vnoremap _c :call Surround('/*', '*/')<CR>
-
 " Surround // Commands
 " Example:
 " :'<,'>Sur (<\ - -\ >)
@@ -448,8 +451,6 @@ endfun
 " Folds // fold when methods are not surrounded by fold markers
 fun! FoldUnmarkedFiles()
     let php_folding=0
-    hi Folded ctermfg=11 ctermbg=0
-    hi FoldColumn ctermfg=12
     EnableFastPHPFolds
     try
         exe "normal /^class\\|^abstract class\\|^interface\<CR>"
@@ -503,6 +504,8 @@ fun! AddDocBlock()
     endwhile
     exe "normal jj^w"
 endfun
+
+" }}}
 
 " }}}
 " {{{ Syntax highlighting
