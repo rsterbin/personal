@@ -29,6 +29,10 @@ let g:project_info['Taubman']['coding_standards'] = {
     \   'classdocblockorder' : [ 'category', 'package', 'copyright' ],
     \}
 
+" Enforce spaces and kill trailing whitespace
+let b:enforceSpaces = 'y'
+let b:enforceNoTrailingWhitespace = { 'html' : 'y', 'asp' : 'y', 'inc' : 'y', 'pm' : 'y' }
+
 " Init function
 fun! g:Project_Init_Taubman()
     let ext = expand("%:e")

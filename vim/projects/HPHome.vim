@@ -29,6 +29,10 @@ let g:project_info['HPHome']['coding_standards'] = {
     \   'classdocblockorder' : [ 'category', 'package', 'since' ],
     \}
 
+" Enforce spaces and kill trailing whitespace
+let b:enforceSpaces = 'y'
+let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
 " Class finder function
 fun! g:Project_Open_HPHome()
     let parts = split(@", '_')

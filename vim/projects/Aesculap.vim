@@ -29,6 +29,10 @@ let g:project_info['Aesculap']['coding_standards'] = {
     \   'classdocblockorder' : [],
     \}
 
+" Enforce spaces and kill trailing whitespace
+let b:enforceSpaces = 'y'
+let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
 " Class finder function
 fun! g:Project_Open_Aesculap()
     let parts = split(@", '_')

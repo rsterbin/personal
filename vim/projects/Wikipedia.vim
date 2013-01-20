@@ -29,6 +29,10 @@ let g:project_info['Wikipedia']['coding_standards'] = {
     \   'classdocblockorder' : [ 'package' ],
     \}
 
+" Enforce tabs and kill trailing whitespace
+let b:enforceTabs = 'y'
+let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
 " Class finder function
 fun! g:Project_Open_Wikipedia()
     let filepath = 'includes/' . substitute(@", '_', '/', 'g') . '.php'

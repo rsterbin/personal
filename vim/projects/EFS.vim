@@ -30,6 +30,10 @@ let g:project_info['EFS']['coding_standards'] = {
     \   'classdocblockorder' : [ 'copyright', 'license', 'version', 'since', 'package', 'author' ],
     \}
 
+" Enforce tabs and kill trailing whitespace
+let b:enforceTabs = 'y'
+let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
 " Class finder function
 fun! g:Project_Open_EFS()
     let filepath = 'lib/' . substitute(@", '_', '/', 'g') . '.php'

@@ -29,6 +29,10 @@ let g:project_info['DermApproved']['coding_standards'] = {
     \   'classdocblockorder' : [ 'package' ],
     \}
 
+" Enforce spaces and kill trailing whitespace
+let b:enforceSpaces = 'y'
+let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
 " Class finder function
 fun! g:Project_Open_DermApproved()
     let filepath = 'includes/' . substitute(@", '_', '/', 'g') . '.php'

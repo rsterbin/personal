@@ -303,8 +303,8 @@ nnoremap <leader>vd :call g:Project_AddDumpLine()<CR>a
 nnoremap <leader>vh oZend_Registry::get('errorHandler')->handle(new EFS_Exception(''));<ESC>$bla
 
 " 20090708 (rsterbin) toggle tabs vs spaces
-nnoremap <leader>ta :call g:Project_ToggleTabsVsSpaces('tabs')<CR>
-nnoremap <leader>sp :call g:Project_ToggleTabsVsSpaces('spaces')<CR>
+nnoremap <leader>ta :call g:ToggleTabsVsSpaces('tabs')<CR>
+nnoremap <leader>sp :call g:ToggleTabsVsSpaces('spaces')<CR>
 
 " 20120132 (rsterbin) Put the current file name into the paste register
 nnoremap <leader>cp :let @" = expand('%')<CR>
@@ -586,19 +586,6 @@ endif
 " Set up XML indentation on xml, html, and tpl files
 au FileType xml call XMLIndent()
 au FileType tpl call XMLIndent()
-
-" Fix remove trailing whitespace on save
-if &diff
-else
-    autocmd BufWritePre *.php :%s/\s\+$//e
-    autocmd BufWritePre *.phtml :%s/\s\+$//e
-    autocmd BufWritePre *.html :%s/\s\+$//e
-    autocmd BufWritePre *.asp :%s/\s\+$//e
-    autocmd BufWritePre *.inc :%s/\s\+$//e
-    autocmd BufWritePre *.pm :%s/\s\+$//e
-    autocmd BufWritePre *.js :%s/\s\+$//e
-    autocmd BufWritePre *.css :%s/\s\+$//e
-endif
 
 " }}}
 

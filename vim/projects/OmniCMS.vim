@@ -29,6 +29,10 @@ let g:project_info['OmniCMS']['coding_standards'] = {
     \   'classdocblockorder' : [ 'category', 'package', 'copyright' ],
     \}
 
+" Enforce spaces and kill trailing whitespace
+let b:enforceSpaces = 'y'
+let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
 " Class finder function
 fun! g:Project_Open_OmniCMS()
     let parts = split(@", '_')
