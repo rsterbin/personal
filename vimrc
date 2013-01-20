@@ -149,6 +149,13 @@ set errorformat=%m\ in\ %f\ on\ line\ %l
 " Adjust word boundaries to include "\" for use with PHP namespaces
 set iskeyword=@,48-57,_,192-255,\
 
+" Allow modelines to work
+set modeline
+set modelines=3
+
+" Turn off spellcheck; it is useless when coding
+set nospell
+
 " }}}
 " {{{ Abbreviations
 
@@ -206,6 +213,13 @@ cnoremap <ESC>[C <Right>
 " Editing and updating the vimrc:
 nnoremap <leader>uu :source ~/.vimrc<CR>
 nnoremap <leader>vv :e ~/.vimrc<CR>
+
+" Surround // Mappings
+vnoremap <Leader>s" :call Surround('"', '"')<CR>
+vnoremap <Leader>s( :call Surround('(', ')')<CR>
+vnoremap <Leader>s[ :call Surround('[', ']')<CR>
+vnoremap <Leader>s{ :call Surround('{', '}')<CR>
+vnoremap <Leader>sc :call Surround('/*', '*/')<CR>
 
 " 20050316 (rsterbin) Toggle text formatting:
 " House coding style at RTO calls for long lines; however, I don't
@@ -296,15 +310,58 @@ nnoremap <leader>sp :call g:Project_ToggleTabsVsSpaces('spaces')<CR>
 nnoremap <leader>cp :let @" = expand('%')<CR>
 
 " }}}
-" {{{ Script and plugin configuration
+" {{{ General Editing - Reformatting Text
+
+" NOTE: The following mapping require formatoptions to include 'r'
+" and 'comments' to include 'n:>' (ie 'nested' comments with '>').
+
+" Formatting the current paragraph according to
+" the current 'textwidth' with ^J (control-j):
+inoremap <C-J> <c-o>gqap
+noremap <C-J> gqap
+
+" ,j = join line in commented text
+" (can be used anywhere on the line)
+nnoremap <leader>j Vjgq
+
+" ,B = break line at current position *and* join the next line
+nnoremap <leader>B r<CR>Vjgq
+
+" }}}
+" {{{ Mapping of special keys - arrow keys and function keys.
+
+" Keyboard mapping for cursor keys
+" [works for XTerminals - 970818]
+noremap <ESC>[A <Up>
+noremap <ESC>[B <Down>
+noremap <ESC>[C <Right>
+noremap <ESC>[D <Left>
+inoremap <ESC>[A <Up>
+inoremap <ESC>[B <Down>
+inoremap <ESC>[C <Right>
+inoremap <ESC>[D <Left>
+
+" Paging up and down should work.
+noremap <PageUp> <C-B>
+noremap <PageDown> <C-F>
+
+" Make [[, ][, ]], and [] work on non-first-column { and }"
+noremap [[ ?{<CR>w99[{
+noremap ][ /}<CR>b99]}
+noremap ]] j0[[%/{<CR>
+noremap [] k$][%?}<CR>
+
+" }}}
+" {{{ Source scripts
 
 " keepcase.vim - substitue case-insensitively, keeping the case
 " intact
-
 source ~/.vim/scripts/keepcase.vim
 
-" MiniBufExplorer configuration
+" }}}
+" {{{ Plugin configuration
 
+" MiniBufExplorer configuration
 if &diff
 else
     " Configuration: Put the explorer on the right side
@@ -376,48 +433,8 @@ let g:project_info = {
 \}
 
 " }}}
-" {{{ General Editing - Reformatting Text
+" {{{ Functions
 
-" NOTE: The following mapping require formatoptions to include 'r'
-" and 'comments' to include 'n:>' (ie 'nested' comments with '>').
-
-" Formatting the current paragraph according to
-" the current 'textwidth' with ^J (control-j):
-inoremap <C-J> <c-o>gqap
-noremap <C-J> gqap
-
-" ,j = join line in commented text
-" (can be used anywhere on the line)
-nnoremap <leader>j Vjgq
-
-" ,B = break line at current position *and* join the next line
-nnoremap <leader>B r<CR>Vjgq
-
-" }}}
-" {{{ Mapping of special keys - arrow keys and function keys.
-
-" Keyboard mapping for cursor keys
-" [works for XTerminals - 970818]
-noremap <ESC>[A <Up>
-noremap <ESC>[B <Down>
-noremap <ESC>[C <Right>
-noremap <ESC>[D <Left>
-inoremap <ESC>[A <Up>
-inoremap <ESC>[B <Down>
-inoremap <ESC>[C <Right>
-inoremap <ESC>[D <Left>
-
-" Paging up and down should work.
-noremap <PageUp> <C-B>
-noremap <PageDown> <C-F>
-
-" Make [[, ][, ]], and [] work on non-first-column { and }"
-noremap [[ ?{<CR>w99[{
-noremap ][ /}<CR>b99]}
-noremap ]] j0[[%/{<CR>
-noremap [] k$][%?}<CR>
-
-" }}}
 " {{{ Surround visual selection with text - Tip #988
 
 " Surround // Main Function
@@ -449,13 +466,6 @@ fun! XMLSurround(tagname) range
     call Surround("<".a:tagname."\>", "</".a:tagname.">")
 endfun
 
-" Surround // Mappings
-vnoremap _" :call Surround('"', '"')<CR>
-vnoremap _( :call Surround('(', ')')<CR>
-vnoremap _[ :call Surround('[', ']')<CR>
-vnoremap _{ :call Surround('{', '}')<CR>
-vnoremap _c :call Surround('/*', '*/')<CR>
-
 " Surround // Commands
 " Example:
 " :'<,'>Sur (<\ - -\ >)
@@ -476,8 +486,6 @@ fun! FoldMarkedFiles()
     set foldmethod=marker
     set foldlevel=0
     set foldcolumn=0
-    hi Folded ctermfg=11 ctermbg=0
-    hi FoldColumn ctermfg=12
     nnoremap <leader>z0 :set foldlevel=0<CR>
     nnoremap <leader>z1 :set foldlevel=1<CR>
     nnoremap <leader>z2 :set foldlevel=2<CR>
@@ -488,8 +496,6 @@ endfun
 " Folds // fold when methods are not surrounded by fold markers
 fun! FoldUnmarkedFiles()
     let php_folding=0
-    hi Folded ctermfg=11 ctermbg=0
-    hi FoldColumn ctermfg=12
     EnableFastPHPFolds
     try
         exe "normal /^class\\|^abstract class\\|^interface\<CR>"
@@ -545,6 +551,22 @@ fun! AddDocBlock()
 endfun
 
 " }}}
+
+" }}}
+" {{{ Syntax highlighting
+
+" Syntax *always* on!
+syntax on
+
+" Use cyan for comments, so they don't look like anything else
+hi! Comment term=bold ctermfg=Cyan guifg=Blue
+
+" Folded sections aren't legible with the lighter blue I use in my terminal
+" windows, so set them to yellow and black.
+hi Folded term=bold ctermfg=Brown ctermbg=DarkGray
+hi FoldColumn term=bold ctermfg=Brown ctermbg=DarkGray
+
+" }}}
 " {{{ AutoCommands
 
 " Set the colors for vim on "xterm"
@@ -560,12 +582,6 @@ set t_Co=8
 set t_AB=[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
 set t_AF=[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm
 endif
-
-" Syntax *always* on!
-" But use cynan for comments, and don't spell-check
-syntax on
-hi! Comment term=bold ctermfg=cyan guifg=Blue
-set nospell
 
 " Set up XML indentation on xml, html, and tpl files
 au FileType xml call XMLIndent()
