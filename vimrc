@@ -149,6 +149,13 @@ set errorformat=%m\ in\ %f\ on\ line\ %l
 " Adjust word boundaries to include "\" for use with PHP namespaces
 set iskeyword=@,48-57,_,192-255,\
 
+" Allow modelines to work
+set modeline
+set modelines=3
+
+" Turn off spellcheck; it is useless when coding
+set nospell
+
 " }}}
 " {{{ Abbreviations
 
@@ -431,8 +438,6 @@ fun! FoldMarkedFiles()
     set foldmethod=marker
     set foldlevel=0
     set foldcolumn=0
-    hi Folded ctermfg=11 ctermbg=0
-    hi FoldColumn ctermfg=12
     nnoremap <leader>z0 :set foldlevel=0<CR>
     nnoremap <leader>z1 :set foldlevel=1<CR>
     nnoremap <leader>z2 :set foldlevel=2<CR>
@@ -500,6 +505,20 @@ fun! AddDocBlock()
 endfun
 
 " }}}
+" {{{ Syntax highlighting
+
+" Syntax *always* on!
+syntax on
+
+" Use cyan for comments, so they don't look like anything else
+hi! Comment term=bold ctermfg=Cyan guifg=Blue
+
+" Folded sections aren't legible with the lighter blue I use in my terminal
+" windows, so set them to yellow and black.
+hi Folded term=bold ctermfg=Brown ctermbg=DarkGray
+hi FoldColumn term=bold ctermfg=Brown ctermbg=DarkGray
+
+" }}}
 " {{{ AutoCommands
 
 " Set the colors for vim on "xterm"
@@ -515,12 +534,6 @@ set t_Co=8
 set t_AB=[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
 set t_AF=[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm
 endif
-
-" Syntax *always* on!
-" But use cynan for comments, and don't spell-check
-syntax on
-hi! Comment term=bold ctermfg=cyan guifg=Blue
-set nospell
 
 " Set up XML indentation on xml, html, and tpl files
 au FileType xml call XMLIndent()
