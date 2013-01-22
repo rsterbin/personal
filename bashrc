@@ -6,8 +6,45 @@ OPEN_YELLOW="\[\033[0;33m\]" # stage
 OPEN_RED="\[\033[0;31m\]"    # dbserver
 CLOSE_COLOR="\[\033[0m\]"
 
-# export PS1="${OPEN_YELLOW}[\u@\h \w]$ ${CLOSE_COLOR}" # color
-export PS1="[\u@\h \w]$ " # no color (for development)
+# Git branch in prompt, colored to indicate state
+parse_git_branch() {
+    git rev-parse --git-dir &> /dev/null
+    git_status="$(git status 2> /dev/null)"
+    branch_pattern="^# On branch ([^${IFS}]*)"
+    remote_pattern="# Your branch is (.*) of"
+    diverge_pattern="# Your branch and (.*) have diverged"
+
+    # Colors without the brackets within the function
+    GREEN="\033[0;32m"
+    YELLOW="\033[0;33m"
+    RED="\033[0;31m"
+    CLOSE="\033[0m"
+
+    # Clean: green
+    color="${GREEN}"
+
+    # Any changes? Red.
+    if [[ ! ${git_status} =~ "working directory clean" ]]; then
+        color="${RED}"
+    fi
+
+    # Ahead/behind/diverged: yellow
+    if [[ ${git_status} =~ ${remote_pattern} ]]; then
+        color="${YELLOW}"
+    fi
+    if [[ ${git_status} =~ ${diverge_pattern} ]]; then
+        color="${YELLOW}"
+    fi
+
+    # Grab the branch name and add it
+    if [[ ${git_status} =~ ${branch_pattern} ]]; then
+        branch=${BASH_REMATCH[1]}
+        echo " ${color}${branch}${CLOSE}"
+    fi
+}
+
+# export PS1="${OPEN_YELLOW}[\u@\h \w]$ ${CLOSE_COLOR}" # all color, no git branch (for stage/prod)
+export PS1="[\u@\h \w\$(parse_git_branch)]$ " # default color, with colored git branch (for development)
 
 export CLICOLOR="true"
 export LSCOLORS="gxfxcxdxbxegedabagacad"
