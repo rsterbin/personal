@@ -7,6 +7,7 @@ OPEN_RED="\[\033[0;31m\]"    # dbserver
 CLOSE_COLOR="\[\033[0m\]"
 
 # Git branch in prompt, colored to indicate state
+# Based on https://gist.github.com/47267
 parse_git_branch() {
     git rev-parse --git-dir &> /dev/null
     git_status="$(git status 2> /dev/null)"
