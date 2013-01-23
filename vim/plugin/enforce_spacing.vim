@@ -81,9 +81,13 @@ endfun
 " Detect whether we should clear out trailing whitespace on write
 "
 fun! g:EnforceTrailingWhitespace()
-    let this_ext = expand('%:e')
+    let this_ext  = expand('%:e')
+    let this_file = expand('%:t')
     if exists('b:enforceNoTrailingWhitespace') && has_key(b:enforceNoTrailingWhitespace, this_ext) && b:enforceNoTrailingWhitespace[this_ext] == 'y'
-        :%s/\s\+$//e
+        if exists('b:ignoreTrailingWhitespace') && has_key(b:ignoreTrailingWhitespace, this_file) && b:ignoreTrailingWhitespace[this_file] == 'y'
+        else
+            :%s/\s\+$//e
+        endif
     endif
 endfun
 
@@ -97,5 +101,3 @@ else
     autocmd BufWritePre *.* :call g:EnforceTrailingWhitespace()
 endif
 
-
-" }}}

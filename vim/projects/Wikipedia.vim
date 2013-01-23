@@ -32,6 +32,7 @@ let g:project_info['Wikipedia']['coding_standards'] = {
 " Enforce tabs and kill trailing whitespace
 let b:enforceTabs = 'y'
 let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+let b:ignoreTrailingWhitespace = { 'ArticleFeedbackv5.i18n.php' : 'y' }
 
 " Class finder function
 fun! g:Project_Open_Wikipedia()
