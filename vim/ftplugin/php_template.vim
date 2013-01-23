@@ -1,3 +1,5 @@
+" vim: set foldlevel=0 foldmethod=marker:
+
 " Vim filetype plugin file for code templates for PHP 4 and 5 development. The
 " code is formatted according to house coding standards.
 "
@@ -1457,116 +1459,6 @@ function! s:get_template_extclass()
             \ "\n" .
             \ "}\n"
     endif
-    if s:coding_standard_tabs == 'y'
-        return template
-    else
-        return substitute(template, "\t", "    ", 'g')
-    endif
-endfunction
-
-"   }}}
-"   {{{ Site controller
-
-function! s:get_template_sitecontroller()
-    let template =
-        \ "<?php\n" .
-        \ "/**\n" .
-        \ " * %name%Controller class\n" .
-        \ " *\n" .
-        \ " * @copyright  %copyright%\n" .
-        \ " * @license    %license%\n" .
-        \ " * @version    $Id$\n" .
-        \ " * @link       %link%\n" .
-        \ " * @since      %since%\n" .
-        \ " * @package    EFS2\n" .
-        \ " * @subpackage Controller\n" .
-        \ " * @author     %author%\n" .
-        \ " */\n" .
-        \ "\n" .
-        \ "/** @see EFS_Controller_%base% **/\n" .
-        \ "Zend_Loader::loadClass('EFS_Controller_%base%');\n" .
-        \ "\n" .
-        \ "/**\n" .
-        \ " * Controller: %display% section\n" .
-        \ " *\n" .
-        \ " * @copyright  %copyright%\n" .
-        \ " * @license    %license%\n" .
-        \ " * @version    $Id$\n" .
-        \ " * @since      %since%\n" .
-        \ " * @package    EFS2\n" .
-        \ " * @subpackage Controller\n" .
-        \ " * @author     %author%\n" .
-        \ " */\n" .
-        \ "class %name%Controller extends EFS_Controller_%base%"
-    if s:coding_standard_classbracebelow == 'y'
-        let template = template . "\n{\n"
-    else
-        let template = template . " {\n"
-    endif
-    let template = template . "}\n"
-    if s:coding_standard_tabs == 'y'
-        return template
-    else
-        return substitute(template, "\t", "    ", 'g')
-    endif
-endfunction
-
-"   }}}
-"   {{{ New Component
-
-function! s:get_template_component()
-    let template =
-        \ "<?php\n" .
-        \ "/**\n" .
-        \ " * EFS_Component_%classname% class\n" .
-        \ " *\n" .
-        \ " * @copyright  %copyright%\n" .
-        \ " * @license    %license%\n" .
-        \ " * @version    $Id$\n" .
-        \ " * @link       %link%\n" .
-        \ " * @since      %since%\n" .
-        \ " * @package    EFS2\n" .
-        \ " * @subpackage Component\n" .
-        \ " * @author     %author%\n" .
-        \ " */\n" .
-        \ "\n" .
-        \ "/**\n" .
-        \ " * %thing% component\n" .
-        \ " *\n" .
-        \ " * @copyright  %copyright%\n" .
-        \ " * @license    %license%\n" .
-        \ " * @version    $Id$\n" .
-        \ " * @since      %since%\n" .
-        \ " * @package    EFS2\n" .
-        \ " * @subpackage Controller\n" .
-        \ " * @author     %author%\n" .
-        \ " */\n" .
-        \ "class EFS_Component_%classname%"
-    if s:coding_standard_classbracebelow == 'y'
-        let template = template . "\n{\n"
-    else
-        let template = template . " {\n"
-    endif
-    let template = template .
-        \ "\t/**\n" .
-        \ "\t * The working site\n" .
-        \ "\t *\n" .
-        \ "\t * @var EFS_Site\n" .
-        \ "\t */\n" .
-        \ "\tprivate $_site;\n" .
-        \ "\n" .
-        \ "\t/**\n" .
-        \ "\t * Constructor\n" .
-        \ "\t *\n" .
-        \ "\t * @param  EFS_Site $site [optional] the working site\n" .
-        \ "\t * @author %author%\n" .
-        \ "\t */\n" .
-        \ "\tpublic function __construct($site = null) {\n" .
-        \ "\t\tif ($site instanceof EFS_Site) {\n" .
-        \ "\t\t\t$this->_site = $site;\n" .
-        \ "\t\t}\n" .
-        \ "\t}\n" .
-        \ "}\n"
     if s:coding_standard_tabs == 'y'
         return template
     else
