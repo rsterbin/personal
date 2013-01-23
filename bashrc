@@ -16,10 +16,10 @@ parse_git_branch() {
     diverge_pattern="# Your branch and (.*) have diverged"
 
     # Colors without the brackets within the function
-    GREEN="\033[0;32m"
-    YELLOW="\033[0;33m"
-    RED="\033[0;31m"
-    CLOSE="\033[0m"
+    GREEN=$(tput setaf 2)
+    YELLOW=$(tput setaf 3)
+    RED=$(tput setaf 1)
+    CLOSE=$(tput sgr0)
 
     # Clean: green
     color="${GREEN}"
