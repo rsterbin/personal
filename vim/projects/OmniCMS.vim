@@ -1,33 +1,35 @@
 
 " Project info
 let g:project_info['OmniCMS']['open_func'] = 'g:Project_Open_OmniCMS'
-let g:project_info['OmniCMS']['category']  = 'OmniCMS'
-let g:project_info['OmniCMS']['package']   = ''
-let g:project_info['OmniCMS']['author']    = 'Reha Sterbin <reha@omniti.com>'
-let g:project_info['OmniCMS']['copyright'] = 'Copyright (c) 2010 OmnitTI'
-let g:project_info['OmniCMS']['license']   = ''
-let g:project_info['OmniCMS']['link']      = ''
-let g:project_info['OmniCMS']['version']   = ''
 
-" Coding standards
-let g:project_info['OmniCMS']['coding_standards'] = {
-    \   'underscore_prefix'  : 'n',
-    \   'docblocks'          : 'y',
-    \   'tabs'               : 'n',
-    \   'spaces'             : 'y',
-    \   'methodauthorline'   : 'n',
-    \   'methodsinceline'    : 'n',
-    \   'propertysinceline'  : 'n',
-    \   'constantsinceline'  : 'n',
-    \   'zendloadclass'      : 'n',
-    \   'requireclass'       : 'n',
-    \   'classbracebelow'    : 'y',
-    \   'methodbracebelow'   : 'y',
-    \   'parenspacing'       : 'n',
-    \   'doxygenworkaround'  : 'n',
-    \   'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
-    \   'classdocblockorder' : [ 'category', 'package', 'copyright' ],
+" Configuration for the php template plugin
+let b:php_template_config = {
+    \   'category'         : 'OmniCMS',
+    \   'package'          : '',
+    \   'author'           : 'Reha Sterbin <reha@omniti.com>',
+    \   'copyright'        : 'Copyright (c) 2010 OmnitTI',
+    \   'license'          : '',
+    \   'link'             : '',
+    \   'version'          : '',
+    \   'coding_standards' : {
+    \       'underscore_prefix'  : 'n',
+    \       'docblocks'          : 'y',
+    \       'tabs'               : 'n',
+    \       'spaces'             : 'y',
+    \       'methodauthorline'   : 'n',
+    \       'methodsinceline'    : 'n',
+    \       'propertysinceline'  : 'n',
+    \       'constantsinceline'  : 'n',
+    \       'zendloadclass'      : 'n',
+    \       'requireclass'       : 'n',
+    \       'classbracebelow'    : 'y',
+    \       'methodbracebelow'   : 'y',
+    \       'parenspacing'       : 'n',
+    \       'doxygenworkaround'  : 'n',
+    \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
+    \       'classdocblockorder' : [ 'category', 'package', 'copyright' ],
     \}
+\}
 
 " Enforce spaces and kill trailing whitespace
 let b:enforceSpaces = 'y'

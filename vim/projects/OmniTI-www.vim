@@ -1,33 +1,35 @@
 
 " Project info
 let g:project_info['OmniTI-www']['open_func'] = 'g:Project_Open_OmniTIwww'
-let g:project_info['OmniTI-www']['category']  = 'OmniTI-www'
-let g:project_info['OmniTI-www']['package']   = ''
-let g:project_info['OmniTI-www']['author']    = 'Reha Sterbin <reha@omniti.com>'
-let g:project_info['OmniTI-www']['copyright'] = 'Copyright (c) 2010 OmnitTI'
-let g:project_info['OmniTI-www']['license']   = ''
-let g:project_info['OmniTI-www']['link']      = ''
-let g:project_info['OmniTI-www']['version']   = ''
 
-" Coding standards
-let g:project_info['OmniTI-www']['coding_standards'] = {
-    \   'underscore_prefix'  : 'n',
-    \   'docblocks'          : 'y',
-    \   'tabs'               : 'n',
-    \   'spaces'             : 'y',
-    \   'methodauthorline'   : 'n',
-    \   'methodsinceline'    : 'n',
-    \   'propertysinceline'  : 'n',
-    \   'constantsinceline'  : 'n',
-    \   'zendloadclass'      : 'n',
-    \   'requireclass'       : 'n',
-    \   'classbracebelow'    : 'y',
-    \   'methodbracebelow'   : 'y',
-    \   'parenspacing'       : 'n',
-    \   'doxygenworkaround'  : 'n',
-    \   'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
-    \   'classdocblockorder' : [ 'category', 'package', 'copyright' ],
+" Configuration for the php template plugin
+let b:php_template_config = {
+    \   'category'         : 'OmniTI-www',
+    \   'package'          : '',
+    \   'author'           : 'Reha Sterbin <reha@omniti.com>',
+    \   'copyright'        : 'Copyright (c) 2010 OmnitTI',
+    \   'license'          : '',
+    \   'link'             : '',
+    \   'version'          : '',
+    \   'coding_standards' : {
+    \       'underscore_prefix'  : 'n',
+    \       'docblocks'          : 'y',
+    \       'tabs'               : 'n',
+    \       'spaces'             : 'y',
+    \       'methodauthorline'   : 'n',
+    \       'methodsinceline'    : 'n',
+    \       'propertysinceline'  : 'n',
+    \       'constantsinceline'  : 'n',
+    \       'zendloadclass'      : 'n',
+    \       'requireclass'       : 'n',
+    \       'classbracebelow'    : 'y',
+    \       'methodbracebelow'   : 'y',
+    \       'parenspacing'       : 'n',
+    \       'doxygenworkaround'  : 'n',
+    \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
+    \       'classdocblockorder' : [ 'category', 'package', 'copyright' ],
     \}
+\}
 
 " Enforce spaces and kill trailing whitespace
 let b:enforceSpaces = 'y'

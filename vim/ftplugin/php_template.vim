@@ -51,6 +51,26 @@ let s:save_cpo = &cpo
 set cpo&vim
 let s:indent = ''
 
+" Set up the default coding standards
+let s:default_coding_standards = {
+    \   'underscore_prefix'  : 'n',
+    \   'docblocks'          : 'y',
+    \   'tabs'               : 'n',
+    \   'spaces'             : 'y',
+    \   'methodauthorline'   : 'n',
+    \   'methodsinceline'    : 'n',
+    \   'propertysinceline'  : 'n',
+    \   'constantsinceline'  : 'n',
+    \   'zendloadclass'      : 'n',
+    \   'requireclass'       : 'n',
+    \   'classbracebelow'    : 'y',
+    \   'methodbracebelow'   : 'y',
+    \   'parenspacing'       : 'n',
+    \   'doxygenworkaround'  : 'n',
+    \   'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author', 'link', 'since' ],
+    \   'classdocblockorder' : [ 'category', 'package', 'since' ],
+    \}
+
 " }}}
 " {{{ Insert Methods
 "   {{{ InsertFile()
@@ -959,11 +979,14 @@ endfunction
 "   {{{ setStandards()
 
 function! s:setStandards()
-    try
-        let standards = g:project_info[b:current_project]['coding_standards']
-    catch
-        let standards = g:project_info['default']['coding_standards']
-    endtry
+    let standards = s:default_coding_standards
+    if exists('b:php_template_config') && has_key(b:php_template_config, 'coding_standards')
+        for std in keys(s:default_coding_standards)
+            if has_key(b:php_template_config['coding_standards'], std)
+                let standards[std] = b:php_template_config['coding_standards'][std]
+            endif
+        endfor
+    endif
 
     " Whether to make sure that private/protected varibales start with an
     " underscore
@@ -1050,11 +1073,11 @@ function! s:getCategory(ask)
         exe "silent mbgg/@category\<CR>wwv$hy`b"
         let category = @"
     catch
-        try
-            let category = g:project_info[b:current_project]['category']
-        catch
+        if exists('b:php_template_config') && has_key(b:php_template_config, 'category')
+            let category = b:php_template_config['category']
+        else
             let category = ''
-        endtry
+        endif
     endtry
     if a:ask == 'y' && category == ''
         let category = input("Category name? ")
@@ -1070,11 +1093,11 @@ function! s:getPackage(ask)
         exe "normal mbgg/@package\<CR>wwv$hy`b"
         let package = @"
     catch
-        try
-            let package = g:project_info[b:current_project]['package']
-        catch
+        if exists('b:php_template_config') && has_key(b:php_template_config, 'package')
+            let package = b:php_template_config['package']
+        else
             let package = ''
-        endtry
+        endif
     endtry
     if a:ask == 'y' && package == ''
         let package = input("Package name? ")
@@ -1090,11 +1113,11 @@ function! s:getSubpackage(ask)
         exe "normal mbgg/@subpackage\<CR>wwv$hy`b"
         let subpackage = @"
     catch
-        try
-            let subpackage = g:project_info[b:current_project]['subpackage']
-        catch
+        if exists('b:php_template_config') && has_key(b:php_template_config, 'subpackage')
+            let subpackage = b:php_template_config['subpackage']
+        else
             let subpackage = ''
-        endtry
+        endif
     endtry
     if a:ask == 'y'
         if subpackage == ''
@@ -1134,24 +1157,22 @@ endfunction
 "   {{{ getCopyright()
 
 function! s:getCopyright()
-    let cp = g:DetectProject()
-    try
-        return g:project_info[cp]['copyright']
-    catch
-        return g:project_info['default']['copyright']
-    endtry
+    if exists('b:php_template_config') && has_key(b:php_template_config, 'copyright')
+        return b:php_template_config['copyright']
+    else
+        return ''
+    endif
 endfunction
 
 "   }}}
 "   {{{ getVersion()
 
 function! s:getVersion()
-    let cp = g:DetectProject()
-    try
-        let versionnum = g:project_info[cp]['version']
-    catch
-        let versionnum = g:project_info['default']['version']
-    endtry
+    if exists('b:php_template_config') && has_key(b:php_template_config, 'versionnum')
+        let versionnum = b:php_template_config['version']
+    else
+        let versionnum = ''
+    endif
     if versionnum == 'DATE'
         let versionnum = strftime('%Y-%m-%d')
     endif
@@ -1162,36 +1183,33 @@ endfunction
 "   {{{ getAuthor()
 
 function! s:getAuthor()
-    let cp = g:DetectProject()
-    try
-        return g:project_info[cp]['author']
-    catch
-        return g:project_info['default']['author']
-    endtry
+    if exists('b:php_template_config') && has_key(b:php_template_config, 'author')
+        return b:php_template_config['author']
+    else
+        return ''
+    endif
 endfunction
 
 "   }}}
 "   {{{ getLicense()
 
 function! s:getLicense()
-    let cp = g:DetectProject()
-    try
-        return g:project_info[cp]['license']
-    catch
-        return g:project_info['default']['license']
-    endtry
+    if exists('b:php_template_config') && has_key(b:php_template_config, 'license')
+        return b:php_template_config['license']
+    else
+        return ''
+    endif
 endfunction
 
 "   }}}
 "   {{{ getLink()
 
 function! s:getLink()
-    let cp = g:DetectProject()
-    try
-        return g:project_info[cp]['link']
-    catch
-        return g:project_info['default']['link']
-    endtry
+    if exists('b:php_template_config') && has_key(b:php_template_config, 'link')
+        return b:php_template_config['link']
+    else
+        return ''
+    endif
 endfunction
 
 "   }}}

@@ -1,33 +1,35 @@
 
 " Project info
 let g:project_info['Aesculap']['open_func'] = 'g:Project_Open_Aesculap'
-let g:project_info['Aesculap']['category']  = ''
-let g:project_info['Aesculap']['package']   = 'Aesculap'
-let g:project_info['Aesculap']['author']    = 'Reha Sterbin <reha@omniti.com>'
-let g:project_info['Aesculap']['copyright'] = 'Copyright (c) 2011 OmnitTI'
-let g:project_info['Aesculap']['license']   = ''
-let g:project_info['Aesculap']['link']      = ''
-let g:project_info['Aesculap']['version']   = ''
 
-" Coding standards
-let g:project_info['Aesculap']['coding_standards'] = {
-    \   'underscore_prefix'  : 'n',
-    \   'docblocks'          : 'y',
-    \   'tabs'               : 'n',
-    \   'spaces'             : 'y',
-    \   'methodauthorline'   : 'n',
-    \   'methodsinceline'    : 'n',
-    \   'propertysinceline'  : 'n',
-    \   'constantsinceline'  : 'n',
-    \   'zendloadclass'      : 'n',
-    \   'requireclass'       : 'n',
-    \   'classbracebelow'    : 'y',
-    \   'methodbracebelow'   : 'n',
-    \   'parenspacing'       : 'n',
-    \   'doxygenworkaround'  : 'n',
-    \   'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
-    \   'classdocblockorder' : [],
+" Configuration for the php template plugin
+let b:php_template_config = {
+    \   'category'         : '',
+    \   'package'          : 'Aesculap',
+    \   'author'           : 'Reha Sterbin <reha@omniti.com>',
+    \   'copyright'        : 'Copyright (c) 2011 OmnitTI',
+    \   'license'          : '',
+    \   'link'             : '',
+    \   'version'          : '',
+    \   'coding_standards' : {
+    \       'underscore_prefix'  : 'n',
+    \       'docblocks'          : 'y',
+    \       'tabs'               : 'n',
+    \       'spaces'             : 'y',
+    \       'methodauthorline'   : 'n',
+    \       'methodsinceline'    : 'n',
+    \       'propertysinceline'  : 'n',
+    \       'constantsinceline'  : 'n',
+    \       'zendloadclass'      : 'n',
+    \       'requireclass'       : 'n',
+    \       'classbracebelow'    : 'y',
+    \       'methodbracebelow'   : 'n',
+    \       'parenspacing'       : 'n',
+    \       'doxygenworkaround'  : 'n',
+    \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
+    \       'classdocblockorder' : [],
     \}
+\}
 
 " Enforce spaces and kill trailing whitespace
 let b:enforceSpaces = 'y'
