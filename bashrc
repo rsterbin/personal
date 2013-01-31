@@ -6,9 +6,13 @@ OPEN_YELLOW="\[\033[0;33m\]" # stage
 OPEN_RED="\[\033[0;31m\]"    # dbserver
 CLOSE_COLOR="\[\033[0m\]"
 
-# Git branch in prompt, colored to indicate state
-# Based on https://gist.github.com/47267
-parse_git_branch() {
+# Git branch
+prompt_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+}
+
+# Git branch, colored to indicate state
+prompt_color_git_branch() {
     git rev-parse --git-dir &> /dev/null
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"
@@ -44,8 +48,8 @@ parse_git_branch() {
     fi
 }
 
-# export PS1="${OPEN_YELLOW}[\u@\h \w]$ ${CLOSE_COLOR}" # all color, no git branch (for stage/prod)
-export PS1="[\u@\h \w\$(parse_git_branch)]$ " # default color, with colored git branch (for development)
+# export PS1="${OPEN_YELLOW}[\u@\h \w${CLOSE_COLOR}\$(prompt_git_branch)${OPEN_YELLOW}]$ ${CLOSE_COLOR}" # all color, except the git branch (for stage/prod)
+export PS1="[\u@\h \w\$(prompt_color_git_branch)]$ " # default color, with colored git branch (for development)
 
 export CLICOLOR="true"
 export LSCOLORS="gxfxcxdxbxegedabagacad"
