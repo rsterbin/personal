@@ -421,6 +421,10 @@ let g:project_info = {
     \   'directory' : [ 'corpweb' ],
     \   'category'  : 'OmniTI-www',
     \},
+    \ 'OraTV' : {
+    \   'directory' : [ 'ora' ],
+    \   'category'  : 'Ora',
+    \},
     \ 'Taubman' : {
     \   'directory' : [ 'taubman' ],
     \   'category'  : 'Taubman',
