@@ -12,6 +12,7 @@ prompt_git_branch() {
 }
 
 # Git branch, colored to indicate state
+# Based on https://gist.github.com/47267
 prompt_color_git_branch() {
     git rev-parse --git-dir &> /dev/null
     git_status="$(git status 2> /dev/null)"
