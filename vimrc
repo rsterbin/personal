@@ -32,8 +32,8 @@ set esckeys
 
 " Options for the 'text format' command ('gq'). TODO: Research this, as it is
 " totally useless to me in most projects, and I might be able to fix it.
-set formatoptions=cqro
-set textwidth=79
+set formatoptions=croqan
+set textwidth=0
 set wrapmargin=0
 
 " Don't tell Vim how to set the help window height; let it happen automatically.
@@ -224,8 +224,8 @@ vnoremap <Leader>sc :call Surround('/*', '*/')<CR>
 " 20050316 (rsterbin) Toggle text formatting:
 " House coding style at RTO calls for long lines; however, I don't
 " want to have to hand-wrap my English text.
-noremap <C-E> :set formatoptions=cqrot<c-m>
-noremap <C-C> :set formatoptions=cqro<c-m>
+noremap <C-E> :set formatoptions=troqan<c-m>
+noremap <C-C> :set formatoptions=croqan<c-m>
 
 " 20050406 (rsterbin) Fix notice error:
 vnoremap <leader>Nea "zdiisset(<C-R>z) && <C-R>z<ESC>
