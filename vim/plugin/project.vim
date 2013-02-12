@@ -102,13 +102,27 @@ autocmd BufReadPost *.* :call g:DetectProject()
 
 " {{{ Convenience functions
 
+" Default class finder function
+fun! g:Project_Open_Default()
+    let filepath = substitute(@", '::', '/', 'g') . '.php'
+    exe ':e ' . filepath
+endfun
+
+" Default dump function
+fun! g:Project_Dump_Default()
+    let blank = "print '<pre style=\"color: red;\">' . \"\\n\"; var_dump(); print '</pre>' . \"\\n\";"
+    let pos = line('.')
+    call append(pos, blank)
+    exe "normal j$9b"
+endfun
+
 " Function: open the class file in the @ register
 fun! g:Project_OpenClassFile()
     let cp = b:current_project
     try
         exec "call " . g:project_info[cp]['open_func'] . "()"
     catch
-        exec "call " . g:project_info['default']['open_func'] . "()"
+        exec "call g:Project_Open_Default()"
     endtry
 endfun
 
@@ -118,7 +132,7 @@ fun! g:Project_AddDumpLine()
     try
         exec "call " . g:project_info[cp]['dump_func'] . "()"
     catch
-        exec "call " . g:project_info['default']['dump_func'] . "()"
+        exec "call g:Project_Dump_Default()"
     endtry
 endfun
 
