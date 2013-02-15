@@ -32,7 +32,9 @@ set esckeys
 
 " Options for the 'text format' command ('gq'). TODO: Research this, as it is
 " totally useless to me in most projects, and I might be able to fix it.
-set formatoptions=croqan
+" Nevermind; autoformat is really just not worth it.
+" set formatoptions=croqan
+set formatoptions=
 set textwidth=0
 set wrapmargin=0
 
