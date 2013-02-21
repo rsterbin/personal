@@ -82,11 +82,7 @@ endfun
 fun! g:SetProject(project)
     let b:current_project = a:project
     let filename = '~/.vim/projects/' . b:current_project . '.vim'
-    echo filename
-    " try
-        exec "source " . filename
-    " catch
-    " endtry
+    exec "source " . filename
     if has_key(g:project_info[b:current_project], 'init_func')
         try
             exec "call " . g:project_info[b:current_project]['init_func'] . "()"
