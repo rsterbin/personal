@@ -44,16 +44,12 @@ fun! g:ToggleTabsVsSpaces(which)
         set shiftwidth=4
         set tabstop=4
         set softtabstop=0
-        noremap <leader>tt :call g:EnforceSpacesToTabs()<CR>
-        call g:EnforceSpacesToTabs()
     endif
     if a:which == "spaces"
         set expandtab
         set shiftwidth=4
         set tabstop=4
         set softtabstop=4
-        noremap <leader>tt :call g:EnforceTabsToSpaces()<CR>
-        call g:EnforceTabsToSpaces()
     endif
 endfun
 
@@ -64,15 +60,15 @@ endfun
 " accordingly
 "
 fun! g:EnforceTabsVsSpaces()
-    let which = "maintain"
     if exists('b:enforceTabs') && b:enforceTabs == 'y'
-        let which = "tabs"
+        call g:ToggleTabsVsSpaces('tabs')
+        call g:EnforceSpacesToTabs()
     else
         if exists('b:enforceSpaces') && b:enforceSpaces == 'y'
-            let which = "spaces"
+            call g:ToggleTabsVsSpaces('spaces')
+            call g:EnforceTabsToSpaces()
         endif
     endif
-    call g:ToggleTabsVsSpaces(which)
 endfun
 
 " }}}
@@ -96,7 +92,6 @@ endfun
 " Correct for tabs and spaces after read and before write
 if &diff
 else
-    autocmd BufReadPost *.* :call g:EnforceTabsVsSpaces()
     autocmd BufWritePre *.* :call g:EnforceTabsVsSpaces()
     autocmd BufWritePre *.* :call g:EnforceTrailingWhitespace()
 endif

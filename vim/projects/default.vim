@@ -31,3 +31,6 @@ let b:php_template_config = {
     \}
 \}
 
+" Prep vim for spaces
+call g:ToggleTabsVsSpaces('spaces')
+

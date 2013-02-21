@@ -31,7 +31,8 @@ let b:php_template_config = {
     \}
 \}
 
-" Enforce tabs and kill trailing whitespace
+" Prep vim for tabs, enforce them, and kill trailing whitespace
+call g:ToggleTabsVsSpaces('tabs')
 let b:enforceTabs = 'y'
 let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 let b:ignoreTrailingWhitespace = { 'ArticleFeedbackv5.i18n.php' : 'y' }
