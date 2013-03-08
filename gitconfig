@@ -8,6 +8,7 @@
     ci = commit
     personal-profile = config user.email \"reha@sterbinsoftware.com\"
     mediawiki-profile = config user.name \"rsterbin\"
+    github-profile = config user.email \"rsterbin@gmail.com\"
 
 [color]
     ui = true
