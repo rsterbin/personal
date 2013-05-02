@@ -60,7 +60,7 @@ export EDITOR="vim"
 export PAGER="less"
 
 umask 002
-# alias ls="ls --color=auto" # Not on Solaris
+# alias ls="ls --color=auto" # only works with gnu ls; confirm that it's being used before enabling
 # alias tocode="cd /some/code/location"
 
 # export VIM_PROJECT="Unknown" # single-project zones
