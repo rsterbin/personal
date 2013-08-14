@@ -172,6 +172,7 @@ iab shoudl should
 iab seperate separate
 iab teh the
 iab tpyo typo
+iab vidoe video
 
 " }}}
 " {{{ Mappings
