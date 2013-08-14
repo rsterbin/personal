@@ -415,6 +415,11 @@ let g:project_info = {
     \   'directory' : [ 'EFS2' ],
     \   'package'   : 'EFS2',
     \},
+    \ 'fork_daemon' : {
+    \   'directory' : [ 'forkdaemon-php' ],
+    \   'category'  : 'system',
+    \   'package'   : 'fork_daemon',
+    \},
     \ 'HPHome' : {
     \   'directory' : [ 'hphome' ],
     \   'category'  : 'HPHome',
