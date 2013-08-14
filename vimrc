@@ -361,6 +361,9 @@ noremap [] k$][%?}<CR>
 " intact
 source ~/.vim/scripts/keepcase.vim
 
+" Pathogen!
+call pathogen#infect()
+
 " }}}
 " {{{ Plugin configuration
 
