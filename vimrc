@@ -573,13 +573,16 @@ endfun
 " Syntax *always* on!
 syntax on
 
+" Colors are better on 256 if we use the light background option
+set background=light
+
 " Use cyan for comments, so they don't look like anything else
 hi! Comment term=bold ctermfg=Cyan guifg=Blue
 
 " Folded sections aren't legible with the lighter blue I use in my terminal
 " windows, so set them to yellow and black.
-hi Folded term=bold ctermfg=Yellow ctermbg=DarkGray
-hi FoldColumn term=bold ctermfg=Yellow ctermbg=DarkGray
+" hi Folded term=bold ctermfg=Brown ctermbg=DarkGray
+" hi FoldColumn term=bold ctermfg=Brown ctermbg=DarkGray
 
 " }}}
 " {{{ AutoCommands
