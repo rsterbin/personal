@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['Aesculap']['init_func'] = 'g:Project_Init_Aesculap'
+let g:project_info['Aesculap']['enter_func'] = 'g:Project_Enter_Aesculap'
 let g:project_info['Aesculap']['open_func'] = 'g:Project_Open_Aesculap'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_Aesculap()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_Aesculap()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

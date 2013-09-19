@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['DoodleDeals']['init_func'] = 'g:Project_Init_DoodleDeals'
+let g:project_info['DoodleDeals']['enter_func'] = 'g:Project_Enter_DoodleDeals'
 let g:project_info['DoodleDeals']['open_func'] = 'g:Project_Open_DoodleDeals'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_DoodleDeals()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_DoodleDeals()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['OmniTI-www']['init_func'] = 'g:Project_Init_OmniTIwww'
+let g:project_info['OmniTI-www']['enter_func'] = 'g:Project_Enter_OmniTIwww'
 let g:project_info['OmniTI-www']['open_func'] = 'g:Project_Open_OmniTIwww'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_OmniTIwww()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_OmniTIwww()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

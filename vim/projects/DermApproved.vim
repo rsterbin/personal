@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['DermApproved']['init_func'] = 'g:Project_Init_DermApproved'
+let g:project_info['DermApproved']['enter_func'] = 'g:Project_Enter_DermApproved'
 let g:project_info['DermApproved']['open_func'] = 'g:Project_Open_DermApproved'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_DermApproved()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_DermApproved()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

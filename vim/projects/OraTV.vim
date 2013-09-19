@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['OraTV']['open_func'] = 'g:Project_Open_OraTV'
+let g:project_info['OraTV']['enter_func'] = 'g:Project_Enter_OraTV'
 let g:project_info['OraTV']['init_func'] = 'g:Project_Init_OraTV'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_OraTV()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_OraTV()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

@@ -96,9 +96,57 @@ fun! g:SetProject(project)
 endfun
 
 " }}}
+" {{{ Function: EnterProjectBuffer
+
+" On entering a project buffer
+"
+fun! g:EnterProjectBuffer()
+    if has_key(g:project_info, b:current_project)
+        let pinfo = g:project_info[b:current_project]
+    else
+        if (has_key(g:project_info, 'default')
+            let pinfo = g:project_info['default']
+        else
+            return
+        endif
+    endif
+    if has_key(pinfo, 'enter_func')
+        try
+            exec "call " . pinfo['enter_func'] . "()"
+        catch
+        endtry
+    endif
+endfun
+
+" }}}
+" {{{ Function: LeaveProjectBuffer
+
+" On leaving a project buffer
+"
+fun! g:LeaveProjectBuffer()
+    if has_key(g:project_info, b:current_project)
+        let pinfo = g:project_info[b:current_project]
+    else
+        if (has_key(g:project_info, 'default')
+            let pinfo = g:project_info['default']
+        else
+            return
+        endif
+    endif
+    if has_key(pinfo, 'leave_func')
+        try
+            exec "call " . pinfo['leave_func'] . "()"
+        catch
+        endtry
+    endif
+endfun
+
+" }}}
 
 " Call DetectProject() on read
 autocmd BufReadPost *.* :call g:DetectProject()
+autocmd BufEnter    *.* :call g:EnterProjectBuffer()
+autocmd BufLeave    *.* :call g:LeaveProjectBuffer()
 
 " {{{ Convenience functions
 

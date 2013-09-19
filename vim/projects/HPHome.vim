@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['HPHome']['init_func'] = 'g:Project_Init_HPHome'
+let g:project_info['HPHome']['enter_func'] = 'g:Project_Enter_HPHome'
 let g:project_info['HPHome']['open_func'] = 'g:Project_Open_HPHome'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_HPHome()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_HPHome()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

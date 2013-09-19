@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['fork_daemon']['init_func'] = 'g:Project_Init_fork_daemon'
+let g:project_info['fork_daemon']['enter_func'] = 'g:Project_Enter_fork_daemon'
 
 " Init function (buffer setup)
 fun! g:Project_Init_fork_daemon()
@@ -39,5 +40,10 @@ fun! g:Project_Init_fork_daemon()
     let b:enforceTabs = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_fork_daemon()
+    call g:ToggleTabsVsSpaces('tabs')
 endfun
 

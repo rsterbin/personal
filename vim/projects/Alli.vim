@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['Alli']['init_func'] = 'g:Project_Init_Alli'
+let g:project_info['Alli']['enter_func'] = 'g:Project_Enter_Alli'
 let g:project_info['Alli']['open_func'] = 'g:Project_Open_Alli'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_Alli()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_Alli()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['Wikipedia']['init_func'] = 'g:Project_Init_Wikipedia'
+let g:project_info['Wikipedia']['enter_func'] = 'g:Project_Enter_Wikipedia'
 let g:project_info['Wikipedia']['open_func'] = 'g:Project_Open_Wikipedia'
 
 " Init function (buffer setup)
@@ -41,6 +42,11 @@ fun! g:Project_Init_Wikipedia()
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
     let b:ignoreTrailingWhitespace = { 'ArticleFeedbackv5.i18n.php' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_Taubman()
+    call g:ToggleTabsVsSpaces('tabs')
 endfun
 
 " Class finder function

@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['OmniCMS']['init_func'] = 'g:Project_Init_OmniCMS'
+let g:project_info['OmniCMS']['enter_func'] = 'g:Project_Enter_OmniCMS'
 let g:project_info['OmniCMS']['open_func'] = 'g:Project_Open_OmniCMS'
 
 " Init function (buffer setup)
@@ -40,6 +41,11 @@ fun! g:Project_Init_OmniCMS()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_OmniCMS()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

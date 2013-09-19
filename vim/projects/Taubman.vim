@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['Taubman']['init_func'] = 'g:Project_Init_Taubman'
+let g:project_info['Taubman']['enter_func'] = 'g:Project_Enter_Taubman'
 let g:project_info['Taubman']['open_func'] = 'g:Project_Open_Taubman'
 let g:project_info['Taubman']['dump_func'] = 'g:Project_Dump_Taubman'
 
@@ -18,6 +19,11 @@ fun! g:Project_Init_Taubman()
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'html' : 'y', 'asp' : 'y', 'inc' : 'y', 'pm' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_Taubman()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function

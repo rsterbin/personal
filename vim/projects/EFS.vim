@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['EFS']['init_func'] = 'g:Project_Init_EFS'
+let g:project_info['EFS']['enter_func'] = 'g:Project_Enter_EFS'
 let g:project_info['EFS']['open_func'] = 'g:Project_Open_EFS'
 let g:project_info['EFS']['dump_func'] = 'g:Project_Dump_EFS'
 
@@ -41,6 +42,11 @@ fun! g:Project_Init_EFS()
     let b:enforceTabs = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_EFS()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
 " Class finder function
