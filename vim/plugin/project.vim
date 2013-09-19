@@ -82,7 +82,11 @@ endfun
 fun! g:SetProject(project)
     let b:current_project = a:project
     let filename = '~/.vim/projects/' . b:current_project . '.vim'
-    exec "source " . filename
+    if has_key(g:project_info[b:current_project], 'loaded')
+    else
+        exec "source " . filename
+        let g:project_info[b:current_project]['loaded'] = 1
+    endif
     if has_key(g:project_info[b:current_project], 'init_func')
         try
             exec "call " . g:project_info[b:current_project]['init_func'] . "()"
