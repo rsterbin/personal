@@ -1,40 +1,46 @@
 
 " Project info
+let g:project_info['HPHome']['init_func'] = 'g:Project_Init_HPHome'
 let g:project_info['HPHome']['open_func'] = 'g:Project_Open_HPHome'
 
-" Configuration for the php template plugin
-let b:php_template_config = {
-    \   'category'         : 'HPHome',
-    \   'package'          : '',
-    \   'author'           : 'Reha Sterbin <reha@sterbinsoftware.com>',
-    \   'copyright'        : 'Copyright (c) 2011 Sterbin Software',
-    \   'license'          : '',
-    \   'link'             : 'http://www.sterbinsoftware.com/',
-    \   'version'          : 'DATE',
-    \   'coding_standards' : {
-    \       'underscore_prefix'  : 'n',
-    \       'docblocks'          : 'y',
-    \       'tabs'               : 'n',
-    \       'spaces'             : 'y',
-    \       'methodauthorline'   : 'n',
-    \       'methodsinceline'    : 'n',
-    \       'propertysinceline'  : 'n',
-    \       'constantsinceline'  : 'n',
-    \       'zendloadclass'      : 'n',
-    \       'requireclass'       : 'n',
-    \       'classbracebelow'    : 'y',
-    \       'methodbracebelow'   : 'y',
-    \       'parenspacing'       : 'n',
-    \       'doxygenworkaround'  : 'n',
-    \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author', 'link', 'since' ],
-    \       'classdocblockorder' : [ 'category', 'package', 'since' ],
-    \}
-\}
+" Init function (buffer setup)
+fun! g:Project_Init_HPHome()
 
-" Prep vim for spaces, enforce them, and kill trailing whitespace
-call g:ToggleTabsVsSpaces('spaces')
-let b:enforceSpaces = 'y'
-let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+    " Configuration for the php template plugin
+    let b:php_template_config = {
+        \   'category'         : 'HPHome',
+        \   'package'          : '',
+        \   'author'           : 'Reha Sterbin <reha@sterbinsoftware.com>',
+        \   'copyright'        : 'Copyright (c) 2011 Sterbin Software',
+        \   'license'          : '',
+        \   'link'             : 'http://www.sterbinsoftware.com/',
+        \   'version'          : 'DATE',
+        \   'coding_standards' : {
+        \       'underscore_prefix'  : 'n',
+        \       'docblocks'          : 'y',
+        \       'tabs'               : 'n',
+        \       'spaces'             : 'y',
+        \       'methodauthorline'   : 'n',
+        \       'methodsinceline'    : 'n',
+        \       'propertysinceline'  : 'n',
+        \       'constantsinceline'  : 'n',
+        \       'zendloadclass'      : 'n',
+        \       'requireclass'       : 'n',
+        \       'classbracebelow'    : 'y',
+        \       'methodbracebelow'   : 'y',
+        \       'parenspacing'       : 'n',
+        \       'doxygenworkaround'  : 'n',
+        \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author', 'link', 'since' ],
+        \       'classdocblockorder' : [ 'category', 'package', 'since' ],
+        \}
+    \}
+
+    " Prep vim for spaces, enforce them, and kill trailing whitespace
+    call g:ToggleTabsVsSpaces('spaces')
+    let b:enforceSpaces = 'y'
+    let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
+endfun
 
 " Class finder function
 fun! g:Project_Open_HPHome()

@@ -1,40 +1,46 @@
 
 " Project info
+let g:project_info['Aesculap']['init_func'] = 'g:Project_Init_Aesculap'
 let g:project_info['Aesculap']['open_func'] = 'g:Project_Open_Aesculap'
 
-" Configuration for the php template plugin
-let b:php_template_config = {
-    \   'category'         : '',
-    \   'package'          : 'Aesculap',
-    \   'author'           : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright'        : 'Copyright (c) 2011 OmnitTI',
-    \   'license'          : '',
-    \   'link'             : '',
-    \   'version'          : '',
-    \   'coding_standards' : {
-    \       'underscore_prefix'  : 'n',
-    \       'docblocks'          : 'y',
-    \       'tabs'               : 'n',
-    \       'spaces'             : 'y',
-    \       'methodauthorline'   : 'n',
-    \       'methodsinceline'    : 'n',
-    \       'propertysinceline'  : 'n',
-    \       'constantsinceline'  : 'n',
-    \       'zendloadclass'      : 'n',
-    \       'requireclass'       : 'n',
-    \       'classbracebelow'    : 'y',
-    \       'methodbracebelow'   : 'n',
-    \       'parenspacing'       : 'n',
-    \       'doxygenworkaround'  : 'n',
-    \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
-    \       'classdocblockorder' : [],
-    \}
-\}
+" Init function (buffer setup)
+fun! g:Project_Init_Aesculap()
 
-" Prep vim for spaces, enforce them, and kill trailing whitespace
-call g:ToggleTabsVsSpaces('spaces')
-let b:enforceSpaces = 'y'
-let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+    " Configuration for the php template plugin
+    let b:php_template_config = {
+        \   'category'         : '',
+        \   'package'          : 'Aesculap',
+        \   'author'           : 'Reha Sterbin <reha@omniti.com>',
+        \   'copyright'        : 'Copyright (c) 2011 OmnitTI',
+        \   'license'          : '',
+        \   'link'             : '',
+        \   'version'          : '',
+        \   'coding_standards' : {
+        \       'underscore_prefix'  : 'n',
+        \       'docblocks'          : 'y',
+        \       'tabs'               : 'n',
+        \       'spaces'             : 'y',
+        \       'methodauthorline'   : 'n',
+        \       'methodsinceline'    : 'n',
+        \       'propertysinceline'  : 'n',
+        \       'constantsinceline'  : 'n',
+        \       'zendloadclass'      : 'n',
+        \       'requireclass'       : 'n',
+        \       'classbracebelow'    : 'y',
+        \       'methodbracebelow'   : 'n',
+        \       'parenspacing'       : 'n',
+        \       'doxygenworkaround'  : 'n',
+        \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
+        \       'classdocblockorder' : [],
+        \}
+    \}
+
+    " Prep vim for spaces, enforce them, and kill trailing whitespace
+    call g:ToggleTabsVsSpaces('spaces')
+    let b:enforceSpaces = 'y'
+    let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
+endfun
 
 " Class finder function
 fun! g:Project_Open_Aesculap()

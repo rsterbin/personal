@@ -1,40 +1,46 @@
 
 " Project info
+let g:project_info['Alli']['init_func'] = 'g:Project_Init_Alli'
 let g:project_info['Alli']['open_func'] = 'g:Project_Open_Alli'
 
-" Configuration for the php template plugin
-let b:php_template_config = {
-    \   'category'         : 'OmniTICMS',
-    \   'package'          : '',
-    \   'author'           : 'Reha Sterbin <reha@omniti.com>',
-    \   'copyright'        : 'Copyright (c) 2010 OmnitTI',
-    \   'license'          : '',
-    \   'link'             : '',
-    \   'version'          : '',
-    \   'coding_standards' : {
-    \       'underscore_prefix'  : 'n',
-    \       'docblocks'          : 'y',
-    \       'tabs'               : 'n',
-    \       'spaces'             : 'y',
-    \       'methodauthorline'   : 'n',
-    \       'methodsinceline'    : 'n',
-    \       'propertysinceline'  : 'n',
-    \       'constantsinceline'  : 'n',
-    \       'zendloadclass'      : 'n',
-    \       'requireclass'       : 'n',
-    \       'classbracebelow'    : 'n',
-    \       'methodbracebelow'   : 'n',
-    \       'parenspacing'       : 'n',
-    \       'doxygenworkaround'  : 'n',
-    \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
-    \       'classdocblockorder' : [ 'category', 'package', 'copyright' ],
-    \}
-\}
+" Init function (buffer setup)
+fun! g:Project_Init_Alli()
 
-" Prep vim for spaces, enforce them, and kill trailing whitespace
-call g:ToggleTabsVsSpaces('spaces')
-let b:enforceSpaces = 'y'
-let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+    " Configuration for the php template plugin
+    let b:php_template_config = {
+        \   'category'         : 'OmniTICMS',
+        \   'package'          : '',
+        \   'author'           : 'Reha Sterbin <reha@omniti.com>',
+        \   'copyright'        : 'Copyright (c) 2010 OmnitTI',
+        \   'license'          : '',
+        \   'link'             : '',
+        \   'version'          : '',
+        \   'coding_standards' : {
+        \       'underscore_prefix'  : 'n',
+        \       'docblocks'          : 'y',
+        \       'tabs'               : 'n',
+        \       'spaces'             : 'y',
+        \       'methodauthorline'   : 'n',
+        \       'methodsinceline'    : 'n',
+        \       'propertysinceline'  : 'n',
+        \       'constantsinceline'  : 'n',
+        \       'zendloadclass'      : 'n',
+        \       'requireclass'       : 'n',
+        \       'classbracebelow'    : 'n',
+        \       'methodbracebelow'   : 'n',
+        \       'parenspacing'       : 'n',
+        \       'doxygenworkaround'  : 'n',
+        \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
+        \       'classdocblockorder' : [ 'category', 'package', 'copyright' ],
+        \}
+    \}
+
+    " Prep vim for spaces, enforce them, and kill trailing whitespace
+    call g:ToggleTabsVsSpaces('spaces')
+    let b:enforceSpaces = 'y'
+    let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
+
+endfun
 
 " Class finder function
 fun! g:Project_Open_Alli()

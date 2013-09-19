@@ -4,17 +4,20 @@ let g:project_info['Taubman']['init_func'] = 'g:Project_Init_Taubman'
 let g:project_info['Taubman']['open_func'] = 'g:Project_Open_Taubman'
 let g:project_info['Taubman']['dump_func'] = 'g:Project_Dump_Taubman'
 
-" Prep vim for spaces, enforce them, and kill trailing whitespace
-call g:ToggleTabsVsSpaces('spaces')
-let b:enforceSpaces = 'y'
-let b:enforceNoTrailingWhitespace = { 'html' : 'y', 'asp' : 'y', 'inc' : 'y', 'pm' : 'y' }
-
 " Init function
 fun! g:Project_Init_Taubman()
+
+    " Set the file type to aspperl
     let ext = expand("%:e")
     if ext == 'inc' || ext == 'html' || ext == 'asp'
         exe ":set ft=aspperl"
     endif
+
+    " Prep vim for spaces, enforce them, and kill trailing whitespace
+    call g:ToggleTabsVsSpaces('spaces')
+    let b:enforceSpaces = 'y'
+    let b:enforceNoTrailingWhitespace = { 'html' : 'y', 'asp' : 'y', 'inc' : 'y', 'pm' : 'y' }
+
 endfun
 
 " Class finder function
