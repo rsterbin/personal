@@ -1,0 +1,38 @@
+
+" Project info
+let g:project_info['default'] = {}
+
+" Configuration for the php template plugin
+let b:php_template_config = {
+    \   'category'         : 'system',
+    \   'package'          : 'fork_daemon',
+    \   'author'           : 'Reha Sterbin <rsterbin@gmail.com>',
+    \   'copyright'        : '',
+    \   'license'          : '',
+    \   'link'             : '',
+    \   'version'          : 'DATE',
+    \   'coding_standards' : {
+    \       'underscore_prefix'  : 'n',
+    \       'docblocks'          : 'y',
+    \       'tabs'               : 'y',
+    \       'spaces'             : 'n',
+    \       'methodauthorline'   : 'n',
+    \       'methodsinceline'    : 'n',
+    \       'propertysinceline'  : 'n',
+    \       'constantsinceline'  : 'n',
+    \       'zendloadclass'      : 'n',
+    \       'requireclass'       : 'n',
+    \       'classbracebelow'    : 'y',
+    \       'methodbracebelow'   : 'y',
+    \       'parenspacing'       : 'y',
+    \       'doxygenworkaround'  : 'n',
+    \       'filedocblockorder'  : [ 'category', 'package' ],
+    \       'classdocblockorder' : [ ],
+    \}
+\}
+
+" Prep vim for tabs, enforce them, and kill trailing whitespace
+call g:ToggleTabsVsSpaces('tabs')
+let b:enforceTabs = 'y'
+let b:enforceNoTrailingWhitespace = { 'php' : 'y' }
+

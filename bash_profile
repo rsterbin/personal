@@ -26,5 +26,7 @@ export PATH MANPATH
 [[ $TERM == 'xterm' ]] && export TERM=xtermc
 [[ $TERM == 'xterm-color' ]] && export TERM=xtermc
 [[ $TERM == 'xterm-256color' ]] && export TERM=xtermc
+
+# Include .bashrc, if present
 [[ -f ${HOME}/.bashrc ]] && . ${HOME}/.bashrc
 

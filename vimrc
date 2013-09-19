@@ -172,6 +172,7 @@ iab shoudl should
 iab seperate separate
 iab teh the
 iab tpyo typo
+iab vidoe video
 
 " }}}
 " {{{ Mappings
@@ -361,6 +362,9 @@ noremap [] k$][%?}<CR>
 " intact
 source ~/.vim/scripts/keepcase.vim
 
+" Pathogen!
+call pathogen#infect()
+
 " }}}
 " {{{ Plugin configuration
 
@@ -411,6 +415,11 @@ let g:project_info = {
     \ 'EFS' : {
     \   'directory' : [ 'EFS2' ],
     \   'package'   : 'EFS2',
+    \},
+    \ 'fork_daemon' : {
+    \   'directory' : [ 'forkdaemon-php' ],
+    \   'category'  : 'system',
+    \   'package'   : 'fork_daemon',
     \},
     \ 'HPHome' : {
     \   'directory' : [ 'hphome' ],
@@ -565,13 +574,16 @@ endfun
 " Syntax *always* on!
 syntax on
 
+" Colors are better on 256 if we use the light background option
+set background=light
+
 " Use cyan for comments, so they don't look like anything else
 hi! Comment term=bold ctermfg=Cyan guifg=Blue
 
 " Folded sections aren't legible with the lighter blue I use in my terminal
 " windows, so set them to yellow and black.
-hi Folded term=bold ctermfg=Yellow ctermbg=DarkGray
-hi FoldColumn term=bold ctermfg=Yellow ctermbg=DarkGray
+" hi Folded term=bold ctermfg=Brown ctermbg=DarkGray
+" hi FoldColumn term=bold ctermfg=Brown ctermbg=DarkGray
 
 " }}}
 " {{{ AutoCommands
