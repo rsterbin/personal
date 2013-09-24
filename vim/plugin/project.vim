@@ -29,6 +29,14 @@ endfun
 "
 fun! g:DetectProject()
 
+    " set up the info if we don't have it
+    if !exists("g:project_info")
+        let g:project_info = {}
+    endif
+    if !has_key(g:project_info, "default")
+        let g:project_info['default'] = {}
+    endif
+
     " do we already have it?
     if exists("b:current_project")
         return b:current_project
@@ -101,10 +109,13 @@ endfun
 " On entering a project buffer
 "
 fun! g:EnterProjectBuffer()
+    if !exists("b:current_project")
+        call g:DetectProject()
+    endif
     if has_key(g:project_info, b:current_project)
         let pinfo = g:project_info[b:current_project]
     else
-        if (has_key(g:project_info, 'default')
+        if (has_key(g:project_info, 'default'))
             let pinfo = g:project_info['default']
         else
             return
@@ -124,10 +135,13 @@ endfun
 " On leaving a project buffer
 "
 fun! g:LeaveProjectBuffer()
+    if !exists("b:current_project")
+        call g:DetectProject()
+    endif
     if has_key(g:project_info, b:current_project)
         let pinfo = g:project_info[b:current_project]
     else
-        if (has_key(g:project_info, 'default')
+        if (has_key(g:project_info, 'default'))
             let pinfo = g:project_info['default']
         else
             return

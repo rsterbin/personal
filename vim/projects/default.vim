@@ -1,6 +1,6 @@
 
 " Project info
-let g:project_info['default'] = { 'init_func' : 'Project_Init_Default' }
+let g:project_info['default']['init_func'] = 'g:Project_Init_Default'
 
 " Init function (buffer setup)
 fun! g:Project_Init_Default()
