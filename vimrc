@@ -582,8 +582,8 @@ hi! Comment term=bold ctermfg=Cyan guifg=Blue
 
 " Folded sections aren't legible with the lighter blue I use in my terminal
 " windows, so set them to yellow and black.
-" hi Folded term=bold ctermfg=Brown ctermbg=DarkGray
-" hi FoldColumn term=bold ctermfg=Brown ctermbg=DarkGray
+hi Folded term=bold ctermfg=Brown ctermbg=Black
+hi FoldColumn term=bold ctermfg=Brown ctermbg=Black
 
 " }}}
 " {{{ AutoCommands
