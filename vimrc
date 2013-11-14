@@ -585,6 +585,12 @@ hi! Comment term=bold ctermfg=Cyan guifg=Blue
 hi Folded term=bold ctermfg=Brown ctermbg=Black
 hi FoldColumn term=bold ctermfg=Brown ctermbg=Black
 
+" Diffs have crappy colors
+highlight DiffAdd cterm=NONE ctermfg=Black ctermbg=Green gui=NONE guifg=Black guibg=Green
+highlight DiffDelete cterm=NONE ctermfg=Black ctermbg=Red gui=NONE guifg=Black guibg=Red
+highlight DiffChange cterm=NONE ctermfg=Black ctermbg=Yellow gui=NONE guifg=Black guibg=Yellow
+highlight DiffText cterm=NONE ctermfg=Black ctermbg=Magenta gui=NONE guifg=Black guibg=Magenta
+
 " }}}
 " {{{ AutoCommands
 
