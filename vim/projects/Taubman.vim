@@ -2,6 +2,7 @@
 " Project info
 let g:project_info['Taubman']['init_func'] = 'g:Project_Init_Taubman'
 let g:project_info['Taubman']['enter_func'] = 'g:Project_Enter_Taubman'
+let g:project_info['Taubman']['exit_func'] = 'g:Project_Exit_Taubman'
 let g:project_info['Taubman']['open_func'] = 'g:Project_Open_Taubman'
 let g:project_info['Taubman']['dump_func'] = 'g:Project_Dump_Taubman'
 
@@ -24,6 +25,12 @@ endfun
 " Enter buffer function
 fun! g:Project_Enter_Taubman()
     call g:ToggleTabsVsSpaces('spaces')
+    noremap <leader>adb 0wveyO=pod <ESC>pa()<ESC>o<CR><CR><CR>=cut<ESC>kka
+endfun
+
+" Exit buffer function
+fun! g:Project_Exit_Taubman()
+    noremap <leader>adb :call AddDocBlock()<CR>
 endfun
 
 " Class finder function
