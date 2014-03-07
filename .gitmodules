@@ -1,3 +1,6 @@
 [submodule "vim/bundle/php_standardized_template"]
 	path = vim/bundle/php_standardized_template
 	url = git://github.com/rsterbin/php_standardized_template
+[submodule "vim/bundle/enforce_spacing"]
+	path = vim/bundle/enforce_spacing
+	url = git@github.com:rsterbin/enforce_spacing.git
