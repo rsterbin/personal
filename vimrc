@@ -308,7 +308,7 @@ nnoremap <leader>vh oZend_Registry::get('errorHandler')->handle(new EFS_Exceptio
 " 20090708 (rsterbin) toggle tabs vs spaces
 nnoremap <leader>ta :call g:ToggleTabsVsSpaces('tabs')<CR>
 nnoremap <leader>sp :call g:ToggleTabsVsSpaces('spaces')<CR>
-nnoremap <leader>tt :call g:EnforceTabsVsSpaces()<CR>
+nnoremap <leader>to :call g:EnforceTabsVsSpaces()<CR>
 
 " 20120132 (rsterbin) Put the current file name into the paste register
 nnoremap <leader>cp :let @" = expand('%')<CR>
