@@ -356,13 +356,8 @@ noremap ]] j0[[%/{<CR>
 noremap [] k$][%?}<CR>
 
 " }}}
-" {{{ Source scripts
+" {{{ Invoke Pathogen
 
-" keepcase.vim - substitue case-insensitively, keeping the case
-" intact
-source ~/.vim/scripts/keepcase.vim
-
-" Pathogen!
 call pathogen#infect()
 
 " }}}
