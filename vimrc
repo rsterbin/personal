@@ -390,8 +390,6 @@ else
     hi MBEChanged ctermfg=darkgreen
     hi MBEVisibleNormal ctermfg=magenta
     hi MBEVisibleChanged ctermfg=magenta
-    " Source the explorer!
-    source ~/.vim/plugin/minibufexpl.vim
 endif
 
 " Projects
