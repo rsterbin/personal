@@ -430,6 +430,10 @@ let g:project_info = {
     \   'directory' : [ 'ora' ],
     \   'category'  : 'Ora',
     \},
+    \ 'Rainbow' : {
+    \   'directory' : [ 'rrc' ],
+    \   'category'  : 'Rainbow',
+    \},
     \ 'Taubman' : {
     \   'directory' : [ 'taubman' ],
     \   'category'  : 'Taubman',
