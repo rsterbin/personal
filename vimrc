@@ -565,6 +565,48 @@ fun! AddDocBlock()
 endfun
 
 " }}}
+" {{{ 20120612 (rsterbin) Default class finder function
+
+fun! g:Project_Open_Default()
+    let filepath = substitute(@", '::', '/', 'g') . '.php'
+    exe ':e ' . filepath
+endfun
+
+" }}}
+" {{{ 20120612 (rsterbin) Default dump function
+
+fun! g:Project_Dump_Default()
+    let blank = "print '<pre style=\"color: red;\">' . \"\\n\"; var_dump(); print '</pre>' . \"\\n\";"
+    let pos = line('.')
+    call append(pos, blank)
+    exe "normal j$9b"
+endfun
+
+" }}}
+" {{{ 20120612 (rsterbin) Open the class file in the @ register
+
+fun! g:Project_OpenClassFile()
+    let cp = b:current_project
+    try
+        exec "call " . g:project_info[cp]['open_func'] . "()"
+    catch
+        exec "call g:Project_Open_Default()"
+    endtry
+endfun
+
+" }}}
+" {{{ 20120612 (rsterbin) Insert a dump line
+
+fun! g:Project_AddDumpLine()
+    let cp = b:current_project
+    try
+        exec "call " . g:project_info[cp]['dump_func'] . "()"
+    catch
+        exec "call g:Project_Dump_Default()"
+    endtry
+endfun
+
+" }}}
 
 " }}}
 " {{{ Syntax highlighting
