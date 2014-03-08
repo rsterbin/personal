@@ -1,0 +1,1 @@
+vis.vba: call delete('/Users/rsterbin/git/personal/vim/bundle/vblockcommands/plugin/visPlugin.vim')|call delete('/Users/rsterbin/git/personal/vim/bundle/vblockcommands/autoload/vis.vim')|call delete('/Users/rsterbin/git/personal/vim/bundle/vblockcommands/plugin/cecutil.vim')|call delete('/Users/rsterbin/git/personal/vim/bundle/vblockcommands/doc/vis.txt')

@@ -308,7 +308,7 @@ nnoremap <leader>vh oZend_Registry::get('errorHandler')->handle(new EFS_Exceptio
 " 20090708 (rsterbin) toggle tabs vs spaces
 nnoremap <leader>ta :call g:ToggleTabsVsSpaces('tabs')<CR>
 nnoremap <leader>sp :call g:ToggleTabsVsSpaces('spaces')<CR>
-nnoremap <leader>tt :call g:EnforceTabsVsSpaces()<CR>
+nnoremap <leader>to :call g:EnforceTabsVsSpaces()<CR>
 
 " 20120132 (rsterbin) Put the current file name into the paste register
 nnoremap <leader>cp :let @" = expand('%')<CR>
@@ -356,13 +356,8 @@ noremap ]] j0[[%/{<CR>
 noremap [] k$][%?}<CR>
 
 " }}}
-" {{{ Source scripts
+" {{{ Invoke Pathogen
 
-" keepcase.vim - substitue case-insensitively, keeping the case
-" intact
-source ~/.vim/scripts/keepcase.vim
-
-" Pathogen!
 call pathogen#infect()
 
 " }}}
@@ -390,8 +385,6 @@ else
     hi MBEChanged ctermfg=darkgreen
     hi MBEVisibleNormal ctermfg=magenta
     hi MBEVisibleChanged ctermfg=magenta
-    " Source the explorer!
-    source ~/.vim/plugin/minibufexpl.vim
 endif
 
 " Projects
@@ -564,6 +557,48 @@ fun! AddDocBlock()
         let string = strpart(string, len + 1)
     endwhile
     exe "normal jj^w"
+endfun
+
+" }}}
+" {{{ 20120612 (rsterbin) Default class finder function
+
+fun! g:Project_Open_Default()
+    let filepath = substitute(@", '::', '/', 'g') . '.php'
+    exe ':e ' . filepath
+endfun
+
+" }}}
+" {{{ 20120612 (rsterbin) Default dump function
+
+fun! g:Project_Dump_Default()
+    let blank = "print '<pre style=\"color: red;\">' . \"\\n\"; var_dump(); print '</pre>' . \"\\n\";"
+    let pos = line('.')
+    call append(pos, blank)
+    exe "normal j$9b"
+endfun
+
+" }}}
+" {{{ 20120612 (rsterbin) Open the class file in the @ register
+
+fun! g:Project_OpenClassFile()
+    let cp = b:current_project
+    try
+        exec "call " . g:project_info[cp]['open_func'] . "()"
+    catch
+        exec "call g:Project_Open_Default()"
+    endtry
+endfun
+
+" }}}
+" {{{ 20120612 (rsterbin) Insert a dump line
+
+fun! g:Project_AddDumpLine()
+    let cp = b:current_project
+    try
+        exec "call " . g:project_info[cp]['dump_func'] . "()"
+    catch
+        exec "call g:Project_Dump_Default()"
+    endtry
 endfun
 
 " }}}
