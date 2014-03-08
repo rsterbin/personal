@@ -8,28 +8,28 @@ let g:project_info['Taubman']['dump_func'] = 'g:Project_Dump_Taubman'
 
 " Init function
 fun! g:Project_Init_Taubman()
-
-    " Set the file type to aspperl
+    " Set the file type to aspperl for known extensions
     let ext = expand("%:e")
     if ext == 'inc' || ext == 'html' || ext == 'asp'
         exe ":set ft=aspperl"
     endif
-
     " Prep vim for spaces, enforce them, and kill trailing whitespace
     call g:ToggleTabsVsSpaces('spaces')
     let b:enforceSpaces = 'y'
     let b:enforceNoTrailingWhitespace = { 'html' : 'y', 'asp' : 'y', 'inc' : 'y', 'pm' : 'y' }
-
 endfun
 
 " Enter buffer function
 fun! g:Project_Enter_Taubman()
+    " Use spaces
     call g:ToggleTabsVsSpaces('spaces')
+    " Add a pod/cut doc block
     noremap <leader>adb 0wveyO=pod <ESC>pa()<ESC>o<CR><CR><CR>=cut<ESC>kka
 endfun
 
 " Exit buffer function
 fun! g:Project_Exit_Taubman()
+    " Go back to the default
     noremap <leader>adb :call AddDocBlock()<CR>
 endfun
 
