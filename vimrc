@@ -434,6 +434,10 @@ let g:project_info = {
     \   'directory' : [ 'rrc' ],
     \   'category'  : 'Rainbow',
     \},
+    \ 'SoulCycle' : {
+    \   'directory' : [],
+    \   'category'  : 'SoulCycle',
+    \},
     \ 'Taubman' : {
     \   'directory' : [ 'taubman' ],
     \   'category'  : 'Taubman',

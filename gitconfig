@@ -6,6 +6,7 @@
     st = status
     co = checkout
     ci = commit
+    omniti-profile = config user.email \"reha@omniti.com\"
     personal-profile = config user.email \"reha@sterbinsoftware.com\"
     mediawiki-profile = config user.name \"rsterbin\"
     github-profile = config user.email \"rsterbin@gmail.com\"
@@ -25,5 +26,4 @@
     main-window-view = HistoryView
     file-view-hpane-position = 364
     file-view-vpane-position = 746
-
 

@@ -25,6 +25,7 @@ fun! g:Project_Init_OraTV()
         \       'methodsinceline'    : 'n',
         \       'propertysinceline'  : 'n',
         \       'constantsinceline'  : 'n',
+        \       'namespace'          : 'n',
         \       'zendloadclass'      : 'n',
         \       'requireclass'       : 'n',
         \       'classbracebelow'    : 'y',

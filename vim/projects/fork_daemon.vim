@@ -24,6 +24,7 @@ fun! g:Project_Init_fork_daemon()
         \       'methodsinceline'    : 'n',
         \       'propertysinceline'  : 'n',
         \       'constantsinceline'  : 'n',
+        \       'namespace'          : 'n',
         \       'zendloadclass'      : 'n',
         \       'requireclass'       : 'n',
         \       'classbracebelow'    : 'y',

@@ -26,6 +26,7 @@ fun! g:Project_Init_EFS()
         \       'methodsinceline'    : 'n',
         \       'propertysinceline'  : 'n',
         \       'constantsinceline'  : 'n',
+        \       'namespace'          : 'n',
         \       'zendloadclass'      : 'y',
         \       'requireclass'       : 'n',
         \       'classbracebelow'    : 'y',

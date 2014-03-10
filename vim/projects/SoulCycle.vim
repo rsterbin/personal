@@ -1,19 +1,20 @@
 
 " Project info
-let g:project_info['Rainbow']['init_func'] = 'g:Project_Init_Rainbow'
+let g:project_info['SoulCycle']['init_func'] = 'g:Project_Init_SoulCycle'
 
 " Init function (buffer setup)
-fun! g:Project_Init_Rainbow()
+fun! g:Project_Init_SoulCycle()
 
     " Configuration for the php template plugin
     let b:php_template_config = {
-        \   'category'         : 'Rainbow',
+        \   'category'         : 'SoulCycle',
         \   'package'          : '',
         \   'author'           : 'Reha Sterbin <reha@omniti.com>',
-        \   'copyright'        : 'Copyright (c) 2010 OmnitTI',
+        \   'copyright'        : '',
         \   'license'          : '',
         \   'link'             : '',
-        \   'version'          : 'DATE',
+        \   'version'          : '',
+        \   'namespace'        : 'SoulCycle',
         \   'coding_standards' : {
         \       'underscore_prefix'  : 'n',
         \       'docblocks'          : 'y',
@@ -23,11 +24,11 @@ fun! g:Project_Init_Rainbow()
         \       'methodsinceline'    : 'n',
         \       'propertysinceline'  : 'n',
         \       'constantsinceline'  : 'n',
-        \       'namespace'          : 'n',
+        \       'namespace'          : 'y',
         \       'zendloadclass'      : 'n',
         \       'requireclass'       : 'n',
-        \       'classbracebelow'    : 'y',
-        \       'methodbracebelow'   : 'y',
+        \       'classbracebelow'    : 'n',
+        \       'methodbracebelow'   : 'n',
         \       'parenspacing'       : 'n',
         \       'doxygenworkaround'  : 'n',
         \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
