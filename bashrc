@@ -17,6 +17,7 @@ prompt_color_git_branch() {
     git rev-parse --git-dir &> /dev/null
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"
+    nobranch_pattern="^# Not currently on any branch."
     remote_pattern="# Your branch is (.*) of"
     diverge_pattern="# Your branch and (.*) have diverged"
 
@@ -46,6 +47,10 @@ prompt_color_git_branch() {
     if [[ ${git_status} =~ ${branch_pattern} ]]; then
         branch=${BASH_REMATCH[1]}
         echo " ${color}${branch}${CLOSE}"
+    fi
+    if [[ ${git_status} =~ ${nobranch_pattern} ]]; then
+        branch=${BASH_REMATCH[1]}
+        echo " ${color}submodule${CLOSE}"
     fi
 }
 
