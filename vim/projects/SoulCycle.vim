@@ -14,6 +14,7 @@ fun! g:Project_Init_SoulCycle()
         \   'license'          : '',
         \   'link'             : '',
         \   'version'          : '',
+        \   'namespace'        : 'SoulCycle',
         \   'coding_standards' : {
         \       'underscore_prefix'  : 'n',
         \       'docblocks'          : 'y',
@@ -23,16 +24,20 @@ fun! g:Project_Init_SoulCycle()
         \       'methodsinceline'    : 'n',
         \       'propertysinceline'  : 'n',
         \       'constantsinceline'  : 'n',
+        \       'namespace'          : 'y',
         \       'zendloadclass'      : 'n',
         \       'requireclass'       : 'n',
-        \       'classbracebelow'    : 'y',
-        \       'methodbracebelow'   : 'y',
+        \       'classbracebelow'    : 'n',
+        \       'methodbracebelow'   : 'n',
         \       'parenspacing'       : 'n',
         \       'doxygenworkaround'  : 'n',
         \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
         \       'classdocblockorder' : [ 'category', 'package' ],
         \}
     \}
+
+    " Prep vim for spaces
+    call g:ToggleTabsVsSpaces('spaces')
 
 endfun
 

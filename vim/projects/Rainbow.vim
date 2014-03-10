@@ -23,6 +23,7 @@ fun! g:Project_Init_Rainbow()
         \       'methodsinceline'    : 'n',
         \       'propertysinceline'  : 'n',
         \       'constantsinceline'  : 'n',
+        \       'namespace'          : 'n',
         \       'zendloadclass'      : 'n',
         \       'requireclass'       : 'n',
         \       'classbracebelow'    : 'y',

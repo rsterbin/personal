@@ -25,6 +25,7 @@ fun! g:Project_Init_Wikipedia()
         \       'methodsinceline'    : 'n',
         \       'propertysinceline'  : 'n',
         \       'constantsinceline'  : 'n',
+        \       'namespace'          : 'n',
         \       'zendloadclass'      : 'n',
         \       'requireclass'       : 'n',
         \       'classbracebelow'    : 'n',
