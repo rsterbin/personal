@@ -13,7 +13,7 @@ fun! g:Project_Init_SoulCycle()
         \   'copyright'        : '',
         \   'license'          : '',
         \   'link'             : '',
-        \   'version'          : '',
+        \   'versionnum'       : 'DATE',
         \   'namespace'        : 'SoulCycle',
         \   'coding_standards' : {
         \       'underscore_prefix'  : 'n',
@@ -31,8 +31,8 @@ fun! g:Project_Init_SoulCycle()
         \       'methodbracebelow'   : 'n',
         \       'parenspacing'       : 'n',
         \       'doxygenworkaround'  : 'n',
-        \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author' ],
-        \       'classdocblockorder' : [ 'category', 'package' ],
+        \       'filedocblockorder'  : [ 'category', 'package', 'author' ],
+        \       'classdocblockorder' : [ 'category', 'package', 'since' ],
         \}
     \}
 
