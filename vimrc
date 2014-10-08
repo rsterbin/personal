@@ -397,6 +397,9 @@ let g:project_info = {
     \   'directory' : [ 'allisports' ],
     \   'category'  : 'OmniTICMS',
     \},
+    \ 'Corpweb' : {
+    \   'directory' : [ 'omniti-web-node' ],
+    \},
     \ 'DermApproved' : {
     \   'directory' : [ 'dermapproved' ],
     \   'category'  : 'DermApproved',
