@@ -16,10 +16,10 @@ prompt_git_branch() {
 prompt_color_git_branch() {
     git rev-parse --git-dir &> /dev/null
     git_status="$(git status 2> /dev/null)"
-    branch_pattern="^# On branch ([^${IFS}]*)"
-    nobranch_pattern="^# Not currently on any branch."
-    remote_pattern="# Your branch is (.*) of"
-    diverge_pattern="# Your branch and (.*) have diverged"
+    branch_pattern="On branch ([^${IFS}]*)"
+    nobranch_pattern="Not currently on any branch."
+    remote_pattern="Your branch is (.*) of"
+    diverge_pattern="Your branch and (.*) have diverged"
 
     # Colors without the brackets within the function
     GREEN=$(tput setaf 2)
@@ -69,6 +69,9 @@ umask 002
 # alias tocode="cd /some/code/location"
 
 # export VIM_PROJECT="Unknown" # single-project zones
+
+# Ora
+export APPLICATION_ENV="reha-local-dev"
 
 # DoodleDeals
 # export PLATFORM="development"
