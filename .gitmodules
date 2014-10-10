@@ -1,9 +1,12 @@
 [submodule "vim/bundle/php_standardized_template"]
 	path = vim/bundle/php_standardized_template
 	url = git@github.com:rsterbin/php_standardized_template.git
+    branch = master
 [submodule "vim/bundle/enforce_spacing"]
 	path = vim/bundle/enforce_spacing
 	url = git@github.com:rsterbin/enforce_spacing.git
+    branch = master
 [submodule "vim/bundle/vim_projects"]
 	path = vim/bundle/vim_projects
 	url = git@github.com:rsterbin/vim_projects.git
+    branch = master
