@@ -27,3 +27,6 @@
     file-view-hpane-position = 364
     file-view-vpane-position = 746
 
+[push]
+	default = simple
+
