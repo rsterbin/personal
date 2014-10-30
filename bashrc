@@ -90,3 +90,7 @@ export APPLICATION_ENV="reha-local-dev"
 # alias taubsearch2="find www/docs/ -type f \( -name \"*.asp\" -o -name \"*.inc\" -o -name \"*.html\" -o -name \"*.xml\" \) | xargs grep"
 # alias taubsearch3="find www/docs/ -type f \( -name \"*.asp\" -o -name \"*.inc\" -o -name \"*.html\" -o -name \"*.xml\" -o -name \"*.css\" -o -name \"*.js\" -o -name \"*.htm\" -o -name \"*.txt\" \) | xargs grep"
 
+# Corpweb
+PYTHONPATH=/www/bin/pylib
+export PYTHONPATH
+
