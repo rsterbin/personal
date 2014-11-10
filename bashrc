@@ -1,10 +1,19 @@
 # Prompt colors
-OPEN_BLUE="\[\033[0;34m\]"   # prod1
-OPEN_TEAL="\[\033[0;36m\]"   # prod2
-OPEN_GREEN="\[\033[0;32m\]"  # prod3
-OPEN_YELLOW="\[\033[0;33m\]" # stage
-OPEN_RED="\[\033[0;31m\]"    # dbserver
-CLOSE_COLOR="\[\033[0m\]"
+PROMPT_RED=$(tput setaf 1)
+PROMPT_GREEN=$(tput setaf 2)
+PROMPT_YELLOW=$(tput setaf 3)
+PROMPT_BLUE=$(tput setaf 4)
+PROMPT_MAGENTA=$(tput setaf 5)
+PROMPT_CYAN=$(tput setaf 6)
+PROMPT_CLOSE_COLOR=$(tput sgr0)
+
+OPEN_RED="\[${PROMPT_RED}\]"
+OPEN_GREEN="\[${PROMPT_GREEN}\]"
+OPEN_YELLOW="\[${PROMPT_YELLOW}\]"
+OPEN_BLUE="\[${PROMPT_BLUE}\]"
+OPEN_MAGENTA="\[${PROMPT_MAGENTA}\]"
+OPEN_CYAN="\[${PROMPT_CYAN}\]"
+CLOSE_COLOR="\[${PROMPT_CLOSE_COLOR}\]"
 
 # Git branch
 prompt_git_branch() {
@@ -21,40 +30,37 @@ prompt_color_git_branch() {
     remote_pattern="Your branch is (.*) of"
     diverge_pattern="Your branch and (.*) have diverged"
 
-    # Colors without the brackets within the function
-    GREEN=$(tput setaf 2)
-    YELLOW=$(tput setaf 3)
-    RED=$(tput setaf 1)
-    CLOSE=$(tput sgr0)
-
     # Clean: green
-    color="${GREEN}"
+    color="${PROMPT_GREEN}"
 
     # Any changes? Red.
     if [[ ! ${git_status} =~ "working directory clean" ]]; then
-        color="${RED}"
+        color="${PROMPT_RED}"
     fi
 
     # Ahead/behind/diverged: yellow
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
-        color="${YELLOW}"
+        color="${PROMPT_YELLOW}"
     fi
     if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-        color="${YELLOW}"
+        color="${PROMPT_YELLOW}"
     fi
 
     # Grab the branch name and add it
+    branch="none"
     if [[ ${git_status} =~ ${branch_pattern} ]]; then
         branch=${BASH_REMATCH[1]}
-        echo " ${color}${branch}${CLOSE}"
     fi
     if [[ ${git_status} =~ ${nobranch_pattern} ]]; then
-        branch=${BASH_REMATCH[1]}
-        echo " ${color}submodule${CLOSE}"
+        branch="submodule"
+    fi
+
+    if [[ ${branch} != "none" ]]; then
+        echo -e " \001${color}\002${branch}\001${PROMPT_CLOSE_COLOR}\002"
     fi
 }
 
-# export PS1="${OPEN_YELLOW}[\u@\h \w${CLOSE_COLOR}\$(prompt_git_branch)${OPEN_YELLOW}]$ ${CLOSE_COLOR}" # all color, except the git branch (for stage/prod)
+# export PS1="${OPEN_CYAN}[\u@\h \w${CLOSE_COLOR}\$(prompt_color_git_branch)${OPEN_CYAN}]$ ${CLOSE_COLOR}" # pick another color (for stage/prod)
 export PS1="[\u@\h \w\$(prompt_color_git_branch)]$ " # default color, with colored git branch (for development)
 
 export CLICOLOR="true"
