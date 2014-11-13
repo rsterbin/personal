@@ -77,7 +77,7 @@ umask 002
 # export VIM_PROJECT="Unknown" # single-project zones
 
 # Ora
-export APPLICATION_ENV="reha-local-dev"
+# export APPLICATION_ENV="reha-local-dev"
 
 # DoodleDeals
 # export PLATFORM="development"
@@ -97,6 +97,6 @@ export APPLICATION_ENV="reha-local-dev"
 # alias taubsearch3="find www/docs/ -type f \( -name \"*.asp\" -o -name \"*.inc\" -o -name \"*.html\" -o -name \"*.xml\" -o -name \"*.css\" -o -name \"*.js\" -o -name \"*.htm\" -o -name \"*.txt\" \) | xargs grep"
 
 # Corpweb
-PYTHONPATH=/www/bin/pylib
-export PYTHONPATH
+# PYTHONPATH=/www/bin/pylib
+# export PYTHONPATH
 
