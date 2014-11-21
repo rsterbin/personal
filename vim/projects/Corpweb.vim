@@ -11,7 +11,7 @@ fun! g:Project_Init_Corpweb()
     let b:enforceNoTrailingWhitespace = { 'js' : 'y', 'json' : 'y', 'ejs' : 'y', 'css' : 'y', 'html' : 'y', 'md' : 'y' }
     " Set folding
     exe ":set foldmethod=indent"
-    exe ":set foldnestmax=1"
+    exe ":set foldnestmax=2"
 endfun
 
 " Dump function
