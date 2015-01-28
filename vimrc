@@ -404,6 +404,10 @@ let g:project_info = {
     \   'directory' : [ 'dermapproved' ],
     \   'category'  : 'DermApproved',
     \},
+    \ 'DevOpsDictionary' : {
+    \   'directory' : [ 'devopsdict' ],
+    \   'category'  : 'DevOpsDictionary',
+    \},
     \ 'DoodleDeals' : {
     \   'directory' : [ 'doodledeals' ],
     \   'category'  : 'DoodleDeals',

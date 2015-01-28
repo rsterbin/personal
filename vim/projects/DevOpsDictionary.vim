@@ -1,11 +1,11 @@
 
 " Project info
-let g:project_info['Wikipedia']['init_func'] = 'g:Project_Init_Wikipedia'
-let g:project_info['Wikipedia']['enter_func'] = 'g:Project_Enter_Wikipedia'
-let g:project_info['Wikipedia']['open_func'] = 'g:Project_Open_Wikipedia'
+let g:project_info['DevOpsDictionary']['init_func'] = 'g:Project_Init_DevOpsDictionary'
+let g:project_info['DevOpsDictionary']['enter_func'] = 'g:Project_Enter_DevOpsDictionary'
+let g:project_info['DevOpsDictionary']['open_func'] = 'g:Project_Open_DevOpsDictionary'
 
 " Init function (buffer setup)
-fun! g:Project_Init_Wikipedia()
+fun! g:Project_Init_DevOpsDictionary()
 
     " Configuration for the php template plugin
     let b:php_template_config = {
@@ -41,17 +41,17 @@ fun! g:Project_Init_Wikipedia()
     call g:ToggleTabsVsSpaces('tabs')
     let b:enforceTabs = 'y'
     let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'phtml' : 'y', 'js' : 'y', 'css' : 'y' }
-    let b:ignoreTrailingWhitespace = { 'ArticleFeedbackv5.i18n.php' : 'y' }
+    let b:ignoreTrailingWhitespace = { }
 
 endfun
 
 " Enter buffer function
-fun! g:Project_Enter_Wikipedia()
+fun! g:Project_Enter_DevOpsDictionary()
     call g:ToggleTabsVsSpaces('tabs')
 endfun
 
 " Class finder function
-fun! g:Project_Open_Wikipedia()
+fun! g:Project_Open_DevOpsDictionary()
     let filepath = 'includes/' . substitute(@", '_', '/', 'g') . '.php'
     exe ':e ' . filepath
 endfun
