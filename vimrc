@@ -400,6 +400,10 @@ let g:project_info = {
     \ 'Corpweb' : {
     \   'directory' : [ 'omniti-web-node' ],
     \},
+    \ 'DBMail' : {
+    \   'directory' : [ 'dbmail' ],
+    \   'category'  : 'DigitalBranding',
+    \},
     \ 'DermApproved' : {
     \   'directory' : [ 'dermapproved' ],
     \   'category'  : 'DermApproved',
