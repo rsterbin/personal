@@ -1,6 +1,7 @@
 
 " Project info
 let g:project_info['DBMail']['init_func'] = 'g:Project_Init_DBMail'
+let g:project_info['DBMail']['enter_func'] = 'g:Project_Enter_DBMail'
 
 " Init function (buffer setup)
 fun! g:Project_Init_DBMail()
@@ -16,7 +17,7 @@ fun! g:Project_Init_DBMail()
         \   'version'          : 'DATE',
         \   'coding_standards' : {
         \       'underscore_prefix'  : 'n',
-        \       'docblocks'          : 'y',
+        \       'docblocks'          : 'n',
         \       'tabs'               : 'n',
         \       'spaces'             : 'y',
         \       'methodauthorline'   : 'n',
@@ -30,13 +31,20 @@ fun! g:Project_Init_DBMail()
         \       'methodbracebelow'   : 'y',
         \       'parenspacing'       : 'n',
         \       'doxygenworkaround'  : 'n',
-        \       'filedocblockorder'  : [ 'category', 'package', 'version', 'author', 'since' ],
-        \       'classdocblockorder' : [ 'category', 'package', 'since' ],
+        \       'filedocblockorder'  : [],
+        \       'classdocblockorder' : [],
         \}
     \}
 
-    " Prep vim for spaces
+    " Prep vim for spaces, enforce them, and kill trailing whitespace
     call g:ToggleTabsVsSpaces('spaces')
+    let b:enforceSpaces = 'y'
+    let b:enforceNoTrailingWhitespace = { 'php' : 'y', 'js' : 'y', 'css' : 'y' }
 
+endfun
+
+" Enter buffer function
+fun! g:Project_Enter_DBMail()
+    call g:ToggleTabsVsSpaces('spaces')
 endfun
 
