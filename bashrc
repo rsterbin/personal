@@ -75,6 +75,7 @@ export PAGER="less"
 
 umask 002
 # alias ls="ls --color=auto" # only works with gnu ls; confirm that it's being used before enabling
+# alias grep='grep --color=auto' # only works with gnu grep; confirm that it's being used before enabling
 # alias tocode="cd /some/code/location"
 
 # export VIM_PROJECT="Unknown" # single-project zones
