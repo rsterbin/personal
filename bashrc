@@ -66,9 +66,12 @@ export PS_HOST="\h" # For real hosts
 # export PS1="${OPEN_CYAN}[\u@\h \w${CLOSE_COLOR}\$(prompt_color_git_branch)${OPEN_CYAN}]$ ${CLOSE_COLOR}" # pick another color (for stage/prod)
 export PS1="$? [\u@${PS_HOST} \w\$(prompt_color_git_branch)]$ " # default color, with colored git branch (for development)
 
+export PC_HOST=$HOSTNAME # For real hosts
+# export PC_HOST="project-dev" # For virtual boxes
+
 export CLICOLOR="true"
 export LSCOLORS="gxfxcxdxbxegedabagacad"
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${PC_HOST}\007"'
 
 export EDITOR="vim"
 export PAGER="less"
