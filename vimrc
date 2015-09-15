@@ -441,6 +441,10 @@ let g:project_info = {
     \   'directory' : [ 'ora' ],
     \   'category'  : 'Ora',
     \},
+    \ 'PTP' : {
+    \   'directory' : [ 'pass-the-plate' ],
+    \   'category'  : 'PTP',
+    \},
     \ 'Rainbow' : {
     \   'directory' : [ 'rrc' ],
     \   'category'  : 'Rainbow',
