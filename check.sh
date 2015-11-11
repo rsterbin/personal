@@ -11,7 +11,7 @@ DIFF_GIT_CONFIG=`diff ~/.gitconfig gitconfig`
 DIFF_VIMRC=`diff ~/.vimrc vimrc`
 
 DIFF_VIM_DIR=""
-for file in `find vim -type f | grep -v "/\.svn/"`
+for file in `find vim -type f | grep -v "/\.svn/" | grep =v "/\.git\/"`
 do
     diff=`diff ~/.$file $file`
     if [ -n "$diff" ]; then
