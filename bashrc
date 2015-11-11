@@ -60,14 +60,17 @@ prompt_color_git_branch() {
     fi
 }
 
-export PS_HOST="\h" # For real hosts
-# export PS_HOST="project-dev" # For virtual boxes
+# VDEV_HOSTNAME="project-dev" # For virtual boxes, to override the autogen host
+if $VDEV_HOSTNAME; then
+    PS_HOST=$VDEV_HOSTNAME
+    PC_HOST=$VDEV_HOSTNAME
+else
+    PS_HOST="\h"
+    PC_HOST=$HOSTNAME
+fi
 
-# export PS1="${OPEN_CYAN}[\u@\h \w${CLOSE_COLOR}\$(prompt_color_git_branch)${OPEN_CYAN}]$ ${CLOSE_COLOR}" # pick another color (for stage/prod)
+# export PS1="${OPEN_CYAN}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_color_git_branch)${OPEN_CYAN}]$ ${CLOSE_COLOR}" # pick another color (for stage/prod)
 export PS1="$? [\u@${PS_HOST} \w\$(prompt_color_git_branch)]$ " # default color, with colored git branch (for development)
-
-export PC_HOST=$HOSTNAME # For real hosts
-# export PC_HOST="project-dev" # For virtual boxes
 
 export CLICOLOR="true"
 export LSCOLORS="gxfxcxdxbxegedabagacad"
