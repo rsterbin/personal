@@ -1,15 +1,15 @@
-# Generate a prompt colored for the environment type and including the git
+ Generate a prompt colored for the environment type and including the git
 # branch, optionally using a preset hostname
 
 # Only use tput if we know we can
 if [ "$personal_can_do_color" = yes ]; then
-	PROMPT_RED=$(tput setaf 1)
-	PROMPT_GREEN=$(tput setaf 2)
-	PROMPT_YELLOW=$(tput setaf 3)
-	PROMPT_BLUE=$(tput setaf 4)
-	PROMPT_MAGENTA=$(tput setaf 5)
-	PROMPT_CYAN=$(tput setaf 6)
-	PROMPT_CLOSE_COLOR=$(tput sgr0)
+    PROMPT_RED=$(tput setaf 1)
+    PROMPT_GREEN=$(tput setaf 2)
+    PROMPT_YELLOW=$(tput setaf 3)
+    PROMPT_BLUE=$(tput setaf 4)
+    PROMPT_MAGENTA=$(tput setaf 5)
+    PROMPT_CYAN=$(tput setaf 6)
+    PROMPT_CLOSE_COLOR=$(tput sgr0)
 fi
 
 # Git branch, colored to indicate state
@@ -76,36 +76,36 @@ fi
 
 # Handle global prompt color
 if [[ $personal_environment_type == "dev" ]]; then
-	OPEN_COLOR=
+    OPEN_COLOR=
 elif [[ $personal_environment_type == "prod" ]]; then
-	OPEN_COLOR=$OPEN_BLUE
+    OPEN_COLOR=$OPEN_BLUE
 elif [[ $personal_environment_type == "prod2" ]]; then
-	OPEN_COLOR=$OPEN_CYAN
+    OPEN_COLOR=$OPEN_CYAN
 elif [[ $personal_environment_type == "stage" ]]; then
-	OPEN_COLOR=$OPEN_YELLOW
+    OPEN_COLOR=$OPEN_YELLOW
 elif [[ $personal_environment_type == "demo" ]]; then
-	OPEN_COLOR=$OPEN_GREEN
+    OPEN_COLOR=$OPEN_GREEN
 elif [[ $personal_environment_type == "master" ]]; then
-	OPEN_COLOR=$OPEN_MAGENTA
+    OPEN_COLOR=$OPEN_MAGENTA
 fi
 
 # Prompt
 if [[ $OPEN_COLOR != "" && $personal_can_do_color == 'yes' ]]; then
-	if [ "$personal_uses_git" = yes ]; then
-		PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_color_git_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
-	else
-		PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w]$ ${CLOSE_COLOR}"
-	fi
+    if [ "$personal_uses_git" = yes ]; then
+        PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_color_git_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
+    else
+        PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w]$ ${CLOSE_COLOR}"
+    fi
 else
-	if [ "$personal_uses_git" = yes ]; then
+    if [ "$personal_uses_git" = yes ]; then
         if [[ $personal_can_do_color == 'yes' ]]; then
             PS1="$? [\u@${PS_HOST} \w\$(prompt_color_git_branch)]$ "
         else
             PS1="$? [\u@${PS_HOST} \w\$(prompt_git_branch)]$ "
         fi
-	else
-		PS1="$? [\u@${PS_HOST} \w]$ "
-	fi
+    else
+        PS1="$? [\u@${PS_HOST} \w]$ "
+    fi
 fi
 export PS1
 
