@@ -65,7 +65,7 @@ OPEN_MAGENTA="\[${PROMPT_MAGENTA}\]"
 OPEN_CYAN="\[${PROMPT_CYAN}\]"
 CLOSE_COLOR="\[${PROMPT_CLOSE_COLOR}\]"
 
-# Use the proper hostname (personal_vdev_hostname is set in .bashrc)
+# Use the proper hostname (personal_vdev_hostname is set in manual.sh)
 if [[ $personal_vdev_hostname != "" ]]; then
   PS_HOST=$personal_vdev_hostname
   PC_HOST=$personal_vdev_hostname
