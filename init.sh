@@ -10,20 +10,26 @@ git submodule init
 git submodule update
 
 # Move the old configs out
+has_old=no
 if [ -e ~/.bash_profile ]; then
     mv ~/.bash_profile $DIR/old/bash_profile 2>/dev/null
+    has_old=yes
 fi
 if [ -e ~/.profile ]; then
     mv ~/.profile $DIR/old/profile 2>/dev/null
+    has_old=yes
 fi
 if [ -e ~/.bashrc ]; then
     mv ~/.bashrc $DIR/old/bashrc 2>/dev/null
+    has_old=yes
 fi
 if [ -e ~/.gitconfig ]; then
     mv ~/.gitconfig $DIR/old/gitconfig 2>/dev/null
+    has_old=yes
 fi
 if [ -e ~/.subversion/config ]; then
     mv ~/.subversion/config $DIR/old/subversion_config 2>/dev/null
+    has_old=yes
 fi
 
 # Swap vim
@@ -79,5 +85,8 @@ else
     echo "personal_single_user=no" >> $DIR/shellconf/manual.sh
 fi
 
-# Open up the old config files to see if there's anything we need to preserve
-vim $DIR/old/*
+# Alert that old files are available in case of emergency
+if [[ $has_old == 'yes' ]]; then
+    echo "Take a look at $DIR/old/ to see if there's anything you need to preserve"
+fi
+
