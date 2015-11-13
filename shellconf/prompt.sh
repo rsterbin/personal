@@ -1,4 +1,4 @@
- Generate a prompt colored for the environment type and including the git
+# Generate a prompt colored for the environment type and including the git
 # branch, optionally using a preset hostname
 
 # Only use tput if we know we can
