@@ -82,7 +82,7 @@ if [[ $inp != "" ]]; then
     read -p "Code location? " inp
     echo "personal_code_location=\"$inp\"" >> $DIR/shellconf/manual.sh
 else
-    echo "personal_single_user=no" >> $DIR/shellconf/manual.sh
+    echo "personal_single_project=no" >> $DIR/shellconf/manual.sh
 fi
 
 # Alert that old files are available in case of emergency
