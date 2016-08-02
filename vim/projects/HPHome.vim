@@ -15,7 +15,7 @@ fun! g:Project_Init_HPHome()
         \   'copyright'        : 'Copyright (c) 2011 Sterbin Software',
         \   'license'          : '',
         \   'link'             : 'http://www.sterbinsoftware.com/',
-        \   'version'          : 'DATE',
+        \   'versionnum'       : 'DATE',
         \   'coding_standards' : {
         \       'underscore_prefix'  : 'n',
         \       'docblocks'          : 'y',
@@ -29,7 +29,7 @@ fun! g:Project_Init_HPHome()
         \       'zendloadclass'      : 'n',
         \       'requireclass'       : 'n',
         \       'classbracebelow'    : 'y',
-        \       'methodbracebelow'   : 'y',
+        \       'methodbracebelow'   : 'n',
         \       'parenspacing'       : 'n',
         \       'doxygenworkaround'  : 'n',
         \       'filedocblockorder'  : [ 'category', 'package', 'copyright', 'version', 'author', 'link', 'since' ],
