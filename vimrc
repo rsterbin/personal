@@ -393,6 +393,10 @@ let g:project_info = {
     \   'directory' : [ 'aesculap' ],
     \   'package'   : 'Aesculap',
     \},
+    \ 'Agora' : {
+    \   'directory' : [ 'agora' ],
+    \   'package'   : 'Agora',
+    \},
     \ 'Alli' : {
     \   'directory' : [ 'allisports' ],
     \   'category'  : 'OmniTICMS',
