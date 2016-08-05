@@ -15,7 +15,7 @@ fun! g:Project_Init_HPHome()
         \   'copyright'        : 'Copyright (c) 2011 Sterbin Software',
         \   'license'          : '',
         \   'link'             : 'http://www.sterbinsoftware.com/',
-        \   'versionnum'       : 'DATE',
+        \   'version'          : 'DATE',
         \   'coding_standards' : {
         \       'underscore_prefix'  : 'n',
         \       'docblocks'          : 'y',
