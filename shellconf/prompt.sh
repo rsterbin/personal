@@ -63,8 +63,7 @@ prompt_color_repo_branch() {
   fi
   if [[ ${branch} == "none" ]]; then
       if [[ ${svn_info} =~ ${svn_branch_pattern} ]]; then
-          # branch=${BASH_REMATCH[1]}
-          branch="branch"
+          branch=${BASH_REMATCH[1]}
       fi
   fi
   if [[ ${branch} == "none" ]]; then
