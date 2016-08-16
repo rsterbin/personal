@@ -24,8 +24,8 @@ prompt_color_repo_branch() {
   remote_pattern="Your branch is (.*) of"
   diverge_pattern="Your branch and (.*) have diverged"
   svn_branch_pattern=$'URL: [^\n]*/branches/([^/\n]*)'
-  svn_trunk_pattern=$'URL: [^\n]*/trunk\n'
-  svn_other_pattern=$'URL: [^\n]*/([^/\n]*)'
+  svn_trunk_pattern=$'URL: [^\n]*/trunk([^\n]*)'
+  svn_other_pattern=$'Repository Root: [^\n]*/([^/\n]*)'
   svn_allowed_prefixes="^((X)|(Performing status on external item)) "
 
   # Clean: green
@@ -56,17 +56,26 @@ prompt_color_repo_branch() {
   if [[ ${git_status} =~ ${branch_pattern} ]]; then
       branch=${BASH_REMATCH[1]}
   fi
-  if [[ ${git_status} =~ ${nobranch_pattern} ]]; then
-      branch="submodule"
+  if [[ ${branch} == "none" ]]; then
+      if [[ ${git_status} =~ ${nobranch_pattern} ]]; then
+          branch="submodule"
+      fi
   fi
-  if [[ ${svn_info} =~ ${svn_branch_pattern} ]]; then
-      branch=${BASH_REMATCH[1]}
+  if [[ ${branch} == "none" ]]; then
+      if [[ ${svn_info} =~ ${svn_branch_pattern} ]]; then
+          # branch=${BASH_REMATCH[1]}
+          branch="branch"
+      fi
   fi
-  if [[ ${svn_info} =~ ${svn_trunk_pattern} ]]; then
-      branch="trunk"
+  if [[ ${branch} == "none" ]]; then
+      if [[ ${svn_info} =~ ${svn_trunk_pattern} ]]; then
+          branch="trunk"
+      fi
   fi
-  if [[ ${svn_info} =~ ${svn_other_pattern} ]]; then
-      branch=${BASH_REMATCH[1]}
+  if [[ ${branch} == "none" ]]; then
+      if [[ ${svn_info} =~ ${svn_other_pattern} ]]; then
+          branch=${BASH_REMATCH[1]}
+      fi
   fi
   if [[ ${branch} != "none" ]]; then
       echo -e " \001${color}\002${branch}\001${PROMPT_CLOSE_COLOR}\002"
