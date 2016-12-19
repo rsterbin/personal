@@ -33,7 +33,7 @@ prompt_color_repo_branch() {
 
   # Any changes? Red.
   if [[ ! ${git_status} == "" ]]; then
-      if [[ ! ${git_status} =~ "working directory clean" ]]; then
+      if [[ ! ${git_status} =~ "working directory clean" && ! ${git_status} =~ "working tree clean" ]]; then
           color="${PROMPT_RED}"
       fi
   fi
