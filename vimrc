@@ -433,6 +433,10 @@ let g:project_info = {
     \   'directory' : [ 'hphome' ],
     \   'category'  : 'HPHome',
     \},
+    \ 'NatGeo' : {
+    \   'directory' : [ 'nge', 'nge-static' ],
+    \   'category'  : 'NatGeo',
+    \},
     \ 'OmniCMS' : {
     \   'directory' : [ 'omnicms' ],
     \   'category'  : 'OmniCMS',
