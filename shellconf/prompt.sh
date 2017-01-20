@@ -111,6 +111,8 @@ elif [[ $personal_environment_type == "prod" ]]; then
     OPEN_COLOR=$OPEN_BLUE
 elif [[ $personal_environment_type == "prod2" ]]; then
     OPEN_COLOR=$OPEN_CYAN
+elif [[ $personal_environment_type == "db" ]]; then
+    OPEN_COLOR=$OPEN_RED
 elif [[ $personal_environment_type == "stage" ]]; then
     OPEN_COLOR=$OPEN_YELLOW
 elif [[ $personal_environment_type == "demo" ]]; then
