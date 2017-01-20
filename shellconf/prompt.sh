@@ -121,13 +121,13 @@ fi
 
 # Prompt
 if [[ $OPEN_COLOR != "" && $personal_can_do_color == 'yes' ]]; then
-    if [ "$personal_uses_git" = yes ]; then
+    if [ "$personal_branch_in_prompt" = yes ]; then
         PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_color_repo_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
     else
         PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w]$ ${CLOSE_COLOR}"
     fi
 else
-    if [ "$personal_uses_git" = yes ]; then
+    if [ "$personal_branch_in_prompt" = yes ]; then
         if [[ $personal_can_do_color == 'yes' ]]; then
             PS1="$? [\u@${PS_HOST} \w\$(prompt_color_repo_branch)]$ "
         else
