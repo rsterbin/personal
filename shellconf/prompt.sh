@@ -16,7 +16,7 @@ fi
 # Based on https://gist.github.com/47267
 prompt_color_repo_branch() {
   git rev-parse --git-dir &> /dev/null
-  git_status="$(git status 2> /dev/null)"
+  git_status="$(git status -uno 2> /dev/null)"
   svn_lines=$(svn st 2> /dev/null | tr ";" "\n")
   svn_info="$(svn info 2> /dev/null)"
   branch_pattern="On branch ([^${IFS}]*)"
@@ -33,7 +33,7 @@ prompt_color_repo_branch() {
 
   # Any changes? Red.
   if [[ ! ${git_status} == "" ]]; then
-      if [[ ! ${git_status} =~ "working directory clean" && ! ${git_status} =~ "working tree clean" ]]; then
+      if [[ ! ${git_status} =~ "working directory clean" && ! ${git_status} =~ "working tree clean" && ! ${git_status} =~ "nothing to commit" ]]; then
           color="${PROMPT_RED}"
       fi
   fi
