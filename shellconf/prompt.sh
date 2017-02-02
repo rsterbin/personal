@@ -83,7 +83,7 @@ prompt_color_repo_branch() {
 
 # Git branch without color
 prompt_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+  git rev-parse --abbrev-ref HEAD 2> /dev/null | sed -e 's/\(.*\)/ \1/'
 }
 
 # Open/close
@@ -123,18 +123,18 @@ fi
 
 # Prompt
 if [[ $OPEN_COLOR != "" && $personal_can_do_color == 'yes' ]]; then
-    if [ "$personal_branch_in_prompt" = yes ]; then
+    if [ "$personal_status_in_prompt" = yes ]; then
         PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_color_repo_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
+    elif [ "$personal_branch_in_prompt" = yes ]; then
+        PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_git_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
     else
         PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w]$ ${CLOSE_COLOR}"
     fi
 else
-    if [ "$personal_branch_in_prompt" = yes ]; then
-        if [[ $personal_can_do_color == 'yes' ]]; then
-            PS1="$? [\u@${PS_HOST} \w\$(prompt_color_repo_branch)]$ "
-        else
-            PS1="$? [\u@${PS_HOST} \w\$(prompt_git_branch)]$ "
-        fi
+    if [[ "$personal_status_in_prompt" = yes && $personal_can_do_color == 'yes' ]]; then
+        PS1="$? [\u@${PS_HOST} \w\$(prompt_color_repo_branch)]$ "
+    elif [ "$personal_branch_in_prompt" = yes ]; then
+        PS1="$? [\u@${PS_HOST} \w\$(prompt_git_branch)]$ "
     else
         PS1="$? [\u@${PS_HOST} \w]$ "
     fi

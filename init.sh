@@ -67,6 +67,14 @@ else
     echo "personal_branch_in_prompt=yes" >> $DIR/shellconf/manual.sh
 fi
 
+read -n 1 -p "Do you want the current git status in your prompt (Y/n)? " inp
+if [[ $inp == "n" || $inp == "N" ]]; then
+    echo ""
+    echo "personal_status_in_prompt=no" >> $DIR/shellconf/manual.sh
+else
+    echo "personal_status_in_prompt=yes" >> $DIR/shellconf/manual.sh
+fi
+
 read -n 1 -p "Are you the only user (Y/n)? " inp
 if [[ $inp == "n" || $inp == "N" ]]; then
     echo ""
