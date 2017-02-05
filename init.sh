@@ -59,13 +59,13 @@ if [[ $inp != "" ]]; then
     echo "personal_vdev_hostname=\"$inp\"" >> $DIR/shellconf/manual.sh
 fi
 
-read -n 1 -p "Do you want the current git branch in your prompt (Y/n)? " inp
+read -p "Do you want the current git branch in your prompt (Y/n)? " inp
 if [[ $inp == "n" || $inp == "N" ]]; then
     echo ""
     echo "personal_branch_in_prompt=no" >> $DIR/shellconf/manual.sh
 else
     echo "personal_branch_in_prompt=yes" >> $DIR/shellconf/manual.sh
-    read -n 1 -p "Do you want the current git status in your prompt (Y/n)? " inp
+    read -p "Do you want the current git status in your prompt (Y/n)? " inp
     if [[ $inp == "n" || $inp == "N" ]]; then
         echo ""
         echo "personal_status_in_prompt=no" >> $DIR/shellconf/manual.sh
@@ -74,7 +74,7 @@ else
     fi
 fi
 
-read -n 1 -p "Are you the only user (Y/n)? " inp
+read -p "Are you the only user (Y/n)? " inp
 if [[ $inp == "n" || $inp == "N" ]]; then
     echo ""
     echo "personal_single_user=no" >> $DIR/shellconf/manual.sh
