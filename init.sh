@@ -23,6 +23,10 @@ if [ -e ~/.bashrc ]; then
     mv ~/.bashrc $DIR/old/bashrc 2>/dev/null
     has_old=yes
 fi
+if [ -e ~/.inputrc ]; then
+    mv ~/.inputrc $DIR/old/inputrc 2>/dev/null
+    has_old=yes
+fi
 if [ -e ~/.gitconfig ]; then
     mv ~/.gitconfig $DIR/old/gitconfig 2>/dev/null
     has_old=yes
@@ -38,6 +42,7 @@ $DIR/swap_vim.sh
 # Copy the new configs in
 cp $DIR/bash_profile ~/.bash_profile
 sed "s|__REPO_DIR__|${DIR}|g" $DIR/bashrc > ~/.bashrc
+cp $DIR/inputrc ~/.inputrc
 cp $DIR/gitconfig ~/.gitconfig
 mkdir ~/.subversion 2>/dev/null
 cp $DIR/subversion_config ~/.subversion/config
