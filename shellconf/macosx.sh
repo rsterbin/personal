@@ -8,5 +8,8 @@ if [[ $personal_os == "osx" ]]; then
     # Add Go to the path
     export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
+    # Alias pngcrush
+    alias pngcrush=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush
+
 fi
 
