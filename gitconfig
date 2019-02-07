@@ -1,12 +1,12 @@
 [user]
     name = Reha Sterbin
-    email = reha@omniti.com
+    email = reha.sterbin@credativ.us
 
 [alias]
     st = status
     co = checkout
     ci = commit
-    omniti-profile = config user.email \"reha@omniti.com\"
+    credativ-profile = config user.email \"reha.sterbin@credativ.us\"
     personal-profile = config user.email \"reha@sterbinsoftware.com\"
     mediawiki-profile = config user.name \"rsterbin\"
     github-profile = config user.email \"rsterbin@gmail.com\"
