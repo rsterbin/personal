@@ -141,6 +141,3 @@ else
 fi
 export PS1
 
-# Window title
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${PC_HOST}\007"'
-
