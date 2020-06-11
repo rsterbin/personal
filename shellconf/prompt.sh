@@ -141,3 +141,16 @@ else
 fi
 export PS1
 
+# Window title
+mytitle() {
+    export CURRENT_PROJECT=$1
+}
+window_title_project() {
+    if [[ $personal_project_title == yes && $CURRENT_PROJECT != "" ]]; then
+        echo -ne "${CURRENT_PROJECT}"
+    else
+        echo -ne "${USER}@${PC_HOST}"
+    fi
+}
+export PROMPT_COMMAND='echo -ne "\033]0;$(window_title_project)\007"'
+
