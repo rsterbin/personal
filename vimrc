@@ -465,6 +465,10 @@ let g:project_info = {
     \   'directory' : [ 'taubman' ],
     \   'category'  : 'Taubman',
     \},
+    \ 'TaubmanCrawler' : {
+    \   'directory' : [ 'url-finder' ],
+    \   'category'  : 'Taubman',
+    \},
     \ 'Wikipedia' : {
     \   'directory' : [ 'mediawiki', 'wiki-commit', 'wiki-internal', 'wiki-external' ],
     \   'category'  : 'MediaWiki',
