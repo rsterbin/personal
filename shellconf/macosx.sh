@@ -26,5 +26,10 @@ if [[ $personal_os == "osx" ]]; then
     # Boring no-cows :(
     export ANSIBLE_NOCOWS=1
 
+    # Add iterm tab colors
+    if [[ $personal_use_tab_colors == yes ]]; then
+        . $DIR/shellconf/iterm2-tab-color.sh
+    fi
+
 fi
 

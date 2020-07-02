@@ -145,12 +145,38 @@ export PS1
 mytitle() {
     export CURRENT_PROJECT=$1
 }
-window_title_project() {
-    if [[ $personal_project_title == yes && $CURRENT_PROJECT != "" ]]; then
-        echo -ne "${CURRENT_PROJECT}"
-    else
-        echo -ne "${USER}@${PC_HOST}"
+mycolor() {
+    if [[ $personal_use_tab_colors == yes ]]; then
+        it2-tab-color $1
     fi
+}
+window_title_project() {
+    if [[ $personal_project_title == yes ]]; then
+        if [[ $CURRENT_PROJECT != "" ]]; then
+            this_project="${CURRENT_PROJECT}"
+        elif [[ $personal_project != "" ]]; then
+            this_project="${personal_project}"
+        else
+            if [[ $personal_project_directory_map != "" ]]; then
+                this_project=$(pwd 2>&1 | tr -d '\n')
+                # TODO: lookup project and color in directory map file
+            else
+                this_project=""
+            fi
+        fi
+    else
+        this_project=""
+    fi
+
+    if [[ $this_project != "" ]]; then
+        this_title=$this_project
+        this_color="00cc00"
+    else
+        this_title="${USER}@${PC_HOST}"
+        this_color=""
+    fi
+
+    echo -ne "${this_title}"
 }
 export PROMPT_COMMAND='echo -ne "\033]0;$(window_title_project)\007"'
 
