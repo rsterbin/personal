@@ -34,3 +34,7 @@ if [[ $personal_project == "Corpweb" ]]; then
     export PYTHONPATH=/www/bin/pylib
 fi
 
+if [[ $personal_project == "TaubmanCrawler" ]]; then
+    export PYTHONPATH=/home/ec2-user/git/url-finder/pylib
+fi
+
