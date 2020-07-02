@@ -465,6 +465,10 @@ let g:project_info = {
     \   'directory' : [ 'taubman' ],
     \   'category'  : 'Taubman',
     \},
+    \ 'Taskman' : {
+    \   'directory' : [ 'taskman' ],
+    \   'category'  : 'Taskman',
+    \},
     \ 'TaubmanCrawler' : {
     \   'directory' : [ 'url-finder' ],
     \   'category'  : 'Taubman',
