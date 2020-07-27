@@ -147,7 +147,12 @@ mytitle() {
 }
 mycolor() {
     if [[ $personal_use_tab_colors == yes ]]; then
-        it2-tab-color $1
+        hexcolor=$(get_hex_color_from_name $1)
+        if [[ $hexcolor == "" ]]; then
+            echo "To set a titlebar color, enter a hex code or named css color"
+        else
+            it2-tab-color $hexcolor
+        fi
     fi
 }
 window_title_project() {

@@ -28,7 +28,8 @@ if [[ $personal_os == "osx" ]]; then
 
     # Add iterm tab colors
     if [[ $personal_use_tab_colors == yes ]]; then
-        . $DIR/shellconf/iterm2-tab-color.sh
+        . $DIR/shellconf/tbcolors/named-colors.sh
+        . $DIR/shellconf/tbcolors/iterm2-tab-color.sh
     fi
 
 fi
