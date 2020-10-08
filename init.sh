@@ -55,6 +55,7 @@ echo "" >> $DIR/shellconf/manual.sh
 
 read -p "Your OS (osx/ubuntu/omnios)? " inp
 echo "personal_os=\"$inp\"" >> $DIR/shellconf/manual.sh
+personal_os=$inp
 
 read -p "Your environment type (dev/demo/stage/prod)? " inp
 echo "personal_environment_type=\"$inp\"" >> $DIR/shellconf/manual.sh
@@ -76,6 +77,16 @@ else
         echo "personal_status_in_prompt=no" >> $DIR/shellconf/manual.sh
     else
         echo "personal_status_in_prompt=yes" >> $DIR/shellconf/manual.sh
+    fi
+fi
+
+if [[ $personal_os == "osx" ]]; then
+    read -p "Are you using iTerm2 over version 3.3 (Y/n)? " inp
+    if [[ $inp == "n" || $inp == "N" ]]; then
+        echo ""
+        echo "personal_use_iterm2=no" >> $DIR/shellconf/manual.sh
+    else
+        echo "personal_use_iterm2=yes" >> $DIR/shellconf/manual.sh
     fi
 fi
 

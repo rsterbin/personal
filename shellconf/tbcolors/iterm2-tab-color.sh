@@ -5,6 +5,18 @@
 # Repo: https://github.com/connordelacruz/iterm2-tab-color
 # ================================================================
 
+# ----------------------------------------------------------------
+# Update for iterm 3.3+
+#
+# iTerm's proprietary escape codes have changed.
+#
+# Old escape codes looked like this:
+# echo -ne "\033]6;1;bg;red;brightness;$R\a"
+# New escape codes look like this:
+# echo -e "\x1b]6;1;bg;red;brightness;0\x07"
+#
+# ----------------------------------------------------------------
+
 # Set the tab color
 it2-tab-color() {
     # takes 1 hex string argument or 3 hex values for RGB
@@ -34,9 +46,9 @@ it2-tab-color() {
             return
             ;;
     esac
-    echo -ne "\033]6;1;bg;red;brightness;$R\a"
-    echo -ne "\033]6;1;bg;green;brightness;$G\a"
-    echo -ne "\033]6;1;bg;blue;brightness;$B\a"
+    echo -ne "\x1b]6;1;bg;red;brightness;$R\x07"
+    echo -ne "\x1b]6;1;bg;green;brightness;$G\x07"
+    echo -ne "\x1b]6;1;bg;blue;brightness;$B\x07"
     # Export environment variable to maintain colors during session
     export IT2_SESSION_COLOR="$R $G $B"
 }

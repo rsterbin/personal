@@ -26,10 +26,25 @@ if [[ $personal_os == "osx" ]]; then
     # Boring no-cows :(
     export ANSIBLE_NOCOWS=1
 
-    # Add iterm tab colors
-    if [[ $personal_use_tab_colors == yes ]]; then
+    # Catalina needs to calm down about zsh
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+
+    # NVM
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+    # PyEnv
+    eval "$(pyenv init -)"
+    export WORKON_HOME=~/.virtualenvs
+    mkdir -p $WORKON_HOME
+    . ~/.pyenv/versions/3.8.1/bin/virtualenvwrapper.sh
+
+    # iTerm2 custom stuff
+    if [[ $personal_use_iterm2 == yes ]]; then
         . $DIR/shellconf/tbcolors/named-colors.sh
         . $DIR/shellconf/tbcolors/iterm2-tab-color.sh
+        # test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     fi
 
 fi

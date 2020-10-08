@@ -146,7 +146,7 @@ mytitle() {
     export CURRENT_PROJECT=$1
 }
 mycolor() {
-    if [[ $personal_use_tab_colors == yes ]]; then
+    if [[ $personal_use_iterm2 == yes ]]; then
         hexcolor=$(get_hex_color_from_name $1)
         if [[ $hexcolor == "" ]]; then
             echo "To set a titlebar color, enter a hex code or named css color"
@@ -156,21 +156,17 @@ mycolor() {
     fi
 }
 window_title_project() {
-    if [[ $personal_project_title == yes ]]; then
-        if [[ $CURRENT_PROJECT != "" ]]; then
-            this_project="${CURRENT_PROJECT}"
-        elif [[ $personal_project != "" ]]; then
-            this_project="${personal_project}"
-        else
-            if [[ $personal_project_directory_map != "" ]]; then
-                this_project=$(pwd 2>&1 | tr -d '\n')
-                # TODO: lookup project and color in directory map file
-            else
-                this_project=""
-            fi
-        fi
+    if [[ $CURRENT_PROJECT != "" ]]; then
+        this_project="${CURRENT_PROJECT}"
+    elif [[ $personal_project != "" ]]; then
+        this_project="${personal_project}"
     else
-        this_project=""
+        if [[ $personal_project_directory_map != "" ]]; then
+            this_project=$(pwd 2>&1 | tr -d '\n')
+            # TODO: lookup project and color in directory map file
+        else
+            this_project=""
+        fi
     fi
 
     if [[ $this_project != "" ]]; then
@@ -183,5 +179,10 @@ window_title_project() {
 
     echo -ne "${this_title}"
 }
-export PROMPT_COMMAND='echo -ne "\033]0;$(window_title_project)\007"'
+
+if [[ $personal_use_iterm2 == yes ]]; then
+    export PROMPT_COMMAND='echo -ne "\x1b];$(window_title_project)\x07"'
+else
+    export PROMPT_COMMAND='echo -ne "\033]0;$(window_title_project)\007"'
+fi
 
