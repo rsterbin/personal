@@ -42,8 +42,9 @@ if [[ $personal_os == "osx" ]]; then
 
     # iTerm2 custom stuff
     if [[ $personal_use_iterm2 == yes ]]; then
-        . $DIR/shellconf/tbcolors/named-colors.sh
-        . $DIR/shellconf/tbcolors/iterm2-tab-color.sh
+        . $DIR/shellconf/iterm2/named-colors.sh
+        . $DIR/shellconf/iterm2/iterm2-tab-color.sh
+        . $DIR/shellconf/iterm2/shortcuts.sh
         # test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     fi
 

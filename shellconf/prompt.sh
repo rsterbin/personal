@@ -161,12 +161,7 @@ window_title_project() {
     elif [[ $personal_project != "" ]]; then
         this_project="${personal_project}"
     else
-        if [[ $personal_project_directory_map != "" ]]; then
-            this_project=$(pwd 2>&1 | tr -d '\n')
-            # TODO: lookup project and color in directory map file
-        else
-            this_project=""
-        fi
+        this_project=""
     fi
 
     if [[ $this_project != "" ]]; then
