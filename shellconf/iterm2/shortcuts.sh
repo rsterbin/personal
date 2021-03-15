@@ -11,6 +11,7 @@ winset() {
         echo "  [1] C2S"
         echo "  [2] HNCT"
         echo "  [3] top"
+        echo "  [4] OTTM"
         read -p "Which project? " inp
         arg1=$inp
     fi
@@ -21,6 +22,8 @@ winset() {
         name="hnct"
     elif [[ $arg1 == "3" ]]; then
         name="top"
+    elif [[ $arg1 == "4" ]]; then
+        name="ottm"
     else
         name=$arg1
     fi
@@ -41,6 +44,12 @@ winset() {
             echo "  [2] front (vim)"
             echo "  [3] back (npm)"
             echo "  [4] back (vim)"
+            read -p "Which window? " inph
+            arg2=$inph
+        elif [[ $name == "ottm" ]]; then
+            echo "Known windows:"
+            echo "  [1] entry (python)"
+            echo "  [2] psql (kerberos)"
             read -p "Which window? " inph
             arg2=$inph
         fi
@@ -69,6 +78,14 @@ winset() {
             pane="back1"
         elif [[ $arg2 == "4" ]]; then
             pane="back2"
+        else
+            pane=$arg2
+        fi
+    elif [[ $name == "ottm" ]]; then
+        if [[ $arg2 == "1" ]]; then
+            pane="entry"
+        elif [[ $arg2 == "2" ]]; then
+            pane="psql"
         else
             pane=$arg2
         fi
@@ -128,7 +145,7 @@ winset() {
             git st
         else
             cd ~/git/hand-in-hand
-            mytitle c2s-$pane
+            mytitle ottm-$pane
         fi
 
     # top: 1 tab: top ordered by cpu
@@ -136,6 +153,24 @@ winset() {
         mycolor red
         mytitle top
         top -o cpu
+
+    # ottm: 1 tab: entry and psql panes
+    elif [[ $name == "ottm" ]]; then
+        mycolor orange
+        if [[ $pane == "entry" ]]; then
+            cd ~/git/officetime-taskman-bridge/
+            mytitle ottm-entry
+            workon ottm
+        elif [[ $pane == "psql" ]]; then
+            cd ~/git/officetime-taskman-bridge/
+            mytitle ottm-psql
+            kubectl get po -ndemo
+            echo " - ACCESS TO SERVER: kubectl exec -it demo-6d8c66cf58-9lc68 bash -ndemo"
+            echo " - ACCESS TO DB: pgsql_taskman"
+        else
+            cd ~/git/officetime-taskman-bridge/
+            mytitle ottm-$pane
+        fi
 
     fi
 
