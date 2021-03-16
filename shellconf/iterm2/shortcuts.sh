@@ -1,6 +1,13 @@
 
 # window setups (work macbook)
 
+# helper: for setups where we want to have a command running, we need to run the prompt command manually
+force_title() {
+    mytitle $1
+    echo -ne "\x1b];$(window_title_project)\x07"
+}
+
+# main function
 winset() {
 
     arg1=$1
@@ -105,7 +112,7 @@ winset() {
             git st
         elif [[ $pane == "react1" ]]; then
             cd ~/git/click2ship/plumdash
-            mytitle c2s-react
+            force_title c2s-react
             yarn run watch
         elif [[ $pane == "react2" ]]; then
             cd ~/git/click2ship/plumdash/app/frontend/js
@@ -117,7 +124,7 @@ winset() {
             git st
         elif [[ $pane == "psql2" ]]; then
             cd ~/git/click2ship/plumdash
-            mytitle c2s-psql
+            force_title c2s-psql
             psql postgresql://automator.db.velky.io:26947/automator -U plumdash
         else
             cd ~/git/click2ship/plumdash
@@ -129,7 +136,7 @@ winset() {
         mycolor green
         if [[ $pane == "front1" ]]; then
             cd ~/git/hand-in-hand/front-hnct
-            mytitle hnct-front
+            force_title hnct-front
             npm start
         elif [[ $pane == "front2" ]]; then
             cd ~/git/hand-in-hand/front-hnct/src
@@ -137,7 +144,7 @@ winset() {
             git st
         elif [[ $pane == "back1" ]]; then
             cd ~/git/hand-in-hand/back-hnct
-            mytitle hnct-back
+            force_title hnct-back
             `PORT=3001 npm start`
         elif [[ $pane == "back2" ]]; then
             cd ~/git/hand-in-hand/back-hnct
@@ -151,7 +158,7 @@ winset() {
     # top: 1 tab: top ordered by cpu
     elif [[ $name == "top" ]]; then
         mycolor red
-        mytitle top
+        force_title top
         top -o cpu
 
     # ottm: 1 tab: entry and psql panes
@@ -163,7 +170,7 @@ winset() {
             workon ottm
         elif [[ $pane == "psql" ]]; then
             cd ~/git/officetime-taskman-bridge/
-            mytitle ottm-psql
+            force_title ottm-psql
             kubectl get po -ndemo
             echo " - ACCESS TO SERVER: kubectl exec -it demo-6d8c66cf58-9lc68 bash -ndemo"
             echo " - ACCESS TO DB: pgsql_taskman"
