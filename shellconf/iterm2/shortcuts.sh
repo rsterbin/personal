@@ -113,6 +113,7 @@ winset() {
         elif [[ $pane == "react1" ]]; then
             cd ~/git/click2ship/plumdash
             force_title c2s-react
+            history -s "yarn run watch"
             yarn run watch
         elif [[ $pane == "react2" ]]; then
             cd ~/git/click2ship/plumdash/app/frontend/js
@@ -125,6 +126,7 @@ winset() {
         elif [[ $pane == "psql2" ]]; then
             cd ~/git/click2ship/plumdash
             force_title c2s-psql
+            history -s "psql postgresql://automator.db.velky.io:26947/automator -U plumdash"
             psql postgresql://automator.db.velky.io:26947/automator -U plumdash
         else
             cd ~/git/click2ship/plumdash
@@ -137,6 +139,7 @@ winset() {
         if [[ $pane == "front1" ]]; then
             cd ~/git/hand-in-hand/front-hnct
             force_title hnct-front
+            history -s "npm start"
             npm start
         elif [[ $pane == "front2" ]]; then
             cd ~/git/hand-in-hand/front-hnct/src
@@ -145,6 +148,7 @@ winset() {
         elif [[ $pane == "back1" ]]; then
             cd ~/git/hand-in-hand/back-hnct
             force_title hnct-back
+            history -s "PORT=3001 npm start"
             `PORT=3001 npm start`
         elif [[ $pane == "back2" ]]; then
             cd ~/git/hand-in-hand/back-hnct
@@ -159,6 +163,7 @@ winset() {
     elif [[ $name == "top" ]]; then
         mycolor red
         force_title top
+        history -s "top -o cpu"
         top -o cpu
 
     # ottm: 1 tab: entry and psql panes
@@ -167,6 +172,7 @@ winset() {
         if [[ $pane == "entry" ]]; then
             cd ~/git/officetime-taskman-bridge/
             mytitle ottm-entry
+            history -s "workon ottm"
             workon ottm
         elif [[ $pane == "psql" ]]; then
             cd ~/git/officetime-taskman-bridge/
