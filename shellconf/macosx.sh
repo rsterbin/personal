@@ -48,5 +48,17 @@ if [[ $personal_os == "osx" ]]; then
         # test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     fi
 
+    # C2S search
+    plumsearch() {
+        search=$1
+        current=`pwd | xargs basename`
+        if [[ $current == "automator" || $current == "amz-edi" ]]; then
+            for dir in edi core web shop daemon base; do grep -rn "$search" "$dir/src"; done
+        fi
+        if [[ $current == "plumdash" ]]; then
+            grep -rn "$search" app
+        fi
+    }
+
 fi
 
