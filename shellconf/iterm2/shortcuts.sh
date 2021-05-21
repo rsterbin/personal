@@ -19,6 +19,8 @@ winset() {
         echo "  [2] HNCT"
         echo "  [3] top"
         echo "  [4] OTTM"
+        echo "  [5] SYSL"
+        echo "  [6] NYLeg"
         read -p "Which project? " inp
         arg1=$inp
     fi
@@ -31,6 +33,10 @@ winset() {
         name="top"
     elif [[ $arg1 == "4" ]]; then
         name="ottm"
+    elif [[ $arg1 == "5" ]]; then
+        name="sysl"
+    elif [[ $arg1 == "6" ]]; then
+        name="nyleg"
     else
         name=$arg1
     fi
@@ -57,6 +63,24 @@ winset() {
             echo "Known windows:"
             echo "  [1] entry (python)"
             echo "  [2] psql (kerberos)"
+            read -p "Which window? " inph
+            arg2=$inph
+        elif [[ $name == "sysl" ]]; then
+            echo "Known windows:"
+            echo "  [1] front (yarn)"
+            echo "  [2] front (vim)"
+            echo "  [3] back (npm)"
+            echo "  [4] back (vim)"
+            read -p "Which window? " inph
+            arg2=$inph
+        elif [[ $name == "nyleg" ]]; then
+            echo "Known windows:"
+            echo "  [1] front (npm)"
+            echo "  [2] front (vim)"
+            echo "  [3] back (npm)"
+            echo "  [4] back (vim)"
+            echo "  [5] curl"
+            echo "  [6] api"
             read -p "Which window? " inph
             arg2=$inph
         fi
@@ -93,6 +117,34 @@ winset() {
             pane="entry"
         elif [[ $arg2 == "2" ]]; then
             pane="psql"
+        else
+            pane=$arg2
+        fi
+    elif [[ $name == "sysl" ]]; then
+        if [[ $arg2 == "1" ]]; then
+            pane="front1"
+        elif [[ $arg2 == "2" ]]; then
+            pane="front2"
+        elif [[ $arg2 == "3" ]]; then
+            pane="back1"
+        elif [[ $arg2 == "4" ]]; then
+            pane="back2"
+        else
+            pane=$arg2
+        fi
+    elif [[ $name == "nyleg" ]]; then
+        if [[ $arg2 == "1" ]]; then
+            pane="front1"
+        elif [[ $arg2 == "2" ]]; then
+            pane="front2"
+        elif [[ $arg2 == "3" ]]; then
+            pane="back1"
+        elif [[ $arg2 == "4" ]]; then
+            pane="back2"
+        elif [[ $arg2 == "5" ]]; then
+            pane="curl"
+        elif [[ $arg2 == "6" ]]; then
+            pane="api"
         else
             pane=$arg2
         fi
@@ -156,7 +208,7 @@ winset() {
             git st
         else
             cd ~/git/hand-in-hand
-            mytitle ottm-$pane
+            mytitle hnct-$pane
         fi
 
     # top: 1 tab: top ordered by cpu
@@ -183,6 +235,68 @@ winset() {
         else
             cd ~/git/officetime-taskman-bridge/
             mytitle ottm-$pane
+        fi
+
+    # sysl: 2 tabs: front (npm + vim panes), back (npm + vim panes)
+    elif [[ $name == "sysl" ]]; then
+        mycolor bisque
+        if [[ $pane == "front1" ]]; then
+            cd ~/git/sysl/front-sysl
+            force_title sysl-front
+            history -s "PORT=3004 yarn run start"
+            PORT=3004 yarn run start
+        elif [[ $pane == "front2" ]]; then
+            cd ~/git/sysl/front-sysl/src
+            force_title sysl-front
+            git st
+        elif [[ $pane == "back1" ]]; then
+            cd ~/git/sysl/back-sysl
+            force_title sysl-back
+            history -s "PORT=3005 npm start"
+            `PORT=3005 npm start`
+        elif [[ $pane == "back2" ]]; then
+            cd ~/git/sysl/back-sysl
+            force_title sysl-back
+            git st
+        else
+            cd ~/git/sysl
+            mytitle sysl-$pane
+        fi
+
+    # nyleg: 2 tabs: front (npm/yarn + vim panes), curl
+    elif [[ $name == "nyleg" ]]; then
+        mycolor cornflowerblue
+        if [[ $pane == "front1" ]]; then
+            cd ~/git/nyleg/front-nyleg
+            force_title nyleg-front
+            history -s "PORT=3002 yarn run start"
+            PORT=3002 yarn run start
+        elif [[ $pane == "front2" ]]; then
+            cd ~/git/nyleg/front-nyleg/src
+            mytitle nyleg-front
+            git st
+        elif [[ $pane == "back1" ]]; then
+            cd ~/git/nyleg/back-nyleg
+            force_title nyleg-back
+            history -s "PORT=3003 npm start"
+            PORT=3003 npm start
+        elif [[ $pane == "back2" ]]; then
+            cd ~/git/nyleg/back-nyleg
+            mytitle nyleg-back
+            git st
+        elif [[ $pane == "curl" ]]; then
+            cd ~/git/nyleg/front-nyleg
+            force_title nyleg-front
+            echo "EXT API EXAMPLE: curl https://legislation.nysenate.gov/api/3/bills/2021/A123?key=rv3Tl5fofxEGzMF4x04ZZ75m0jXcChjT"
+            echo "INT API EXAMPLE: curl -X POST http://localhost2:3003/api/v1/admin/auth/login -H \"Origin: http://localhost:3002\" -H \"Content-Type: application/json\" -d '{\"email\":\"rsterbin@gmail.com\",\"password\":\"mynewpass\"}' | jq"
+            echo "INT API EXAMPLE: curl -X POST http://localhost2:3003/api/v1/admin/user/list -H \"Origin: http://localhost:3002\" -H \"Content-Type: application/json\" -d '{\"session\":{\"sid\":\"<COPY>\",\"uid\":\"<COPY>\",\"token\":\"<COPY>\"}}' | jq"
+        elif [[ $pane == "api" ]]; then
+            cd ~/git/pkg/express-api-support
+            mytitle nyleg-api
+            git st
+        else
+            cd ~/git/nyleg
+            mytitle nyleg-$pane
         fi
 
     fi
