@@ -2,6 +2,9 @@
 
 if [[ $personal_os == "osx" ]]; then
 
+    # Add Applications to the path
+    export PATH=/Applications:$PATH
+
     # Add PHP7 to the path
     export PATH=/usr/local/php5-7.3.8-20190811-205217/bin:$PATH
 
@@ -44,7 +47,7 @@ if [[ $personal_os == "osx" ]]; then
     if [[ $personal_use_iterm2 == yes ]]; then
         . $DIR/shellconf/iterm2/named-colors.sh
         . $DIR/shellconf/iterm2/iterm2-tab-color.sh
-        . $DIR/shellconf/iterm2/shortcuts.sh
+        . $HOME/git/iterm2-my-shortcuts/shortcuts.sh
         # test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     fi
 
