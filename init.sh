@@ -87,6 +87,8 @@ if [[ $personal_os == "osx" ]]; then
         echo "personal_use_iterm2=no" >> $DIR/shellconf/manual.sh
     else
         echo "personal_use_iterm2=yes" >> $DIR/shellconf/manual.sh
+        read -p "Which window pane configuration would you like to use? " inp
+        echo "personal_window_config=\"$inp\"" >> $DIR/shellconf/manual.sh
     fi
 fi
 
