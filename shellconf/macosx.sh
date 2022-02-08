@@ -38,17 +38,21 @@ if [[ $personal_os == "osx" ]]; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
     # PyEnv
-    eval "$(pyenv init -)"
     export WORKON_HOME=~/.virtualenvs
     mkdir -p $WORKON_HOME
-    . ~/.pyenv/versions/3.8.1/bin/virtualenvwrapper.sh
+    export PATH=$(pyenv root)/shims:$PATH
+    export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+    eval "$(pyenv init -)"
+    pyenv virtualenvwrapper_lazy
+
+    # PipEnv
+    export PATH=/Users/reha/.local/bin:$PATH
 
     # iTerm2 custom stuff
     if [[ $personal_use_iterm2 == yes ]]; then
         . $DIR/shellconf/iterm2/named-colors.sh
         . $DIR/shellconf/iterm2/iterm2-tab-color.sh
         . $DIR/shellconf/iterm2/shortcuts.sh
-        # test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     fi
 
     # C2S search
