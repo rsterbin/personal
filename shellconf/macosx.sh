@@ -46,7 +46,7 @@ if [[ $personal_os == "osx" ]]; then
     pyenv virtualenvwrapper_lazy
 
     # PipEnv
-    export PATH=/Users/reha/.local/bin:$PATH
+    export PATH=$HOME/.local/bin:$PATH
 
     # iTerm2 custom stuff
     if [[ $personal_use_iterm2 == yes ]]; then
