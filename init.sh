@@ -87,7 +87,7 @@ if [[ $personal_os == "osx" ]]; then
         echo "personal_use_iterm2=no" >> $DIR/shellconf/manual.sh
     else
         echo "personal_use_iterm2=yes" >> $DIR/shellconf/manual.sh
-        read -p "Which window pane configuration would you like to use? " inp
+        read -p "Which window pane configuration would you like to use? (work/personal) " inp
         echo "personal_window_config=\"$inp\"" >> $DIR/shellconf/manual.sh
     fi
 fi
@@ -114,4 +114,15 @@ fi
 if [[ $has_old == 'yes' ]]; then
     echo "Take a look at $DIR/old/ to see if there's anything you need to preserve"
 fi
+
+echo "The following files have been updated:"
+echo "  * ~/.bash_profile"
+echo "  * ~/.bashrc"
+echo "  * ~/.vimrc"
+echo "  * ~/.inputrc"
+echo "  * ~/.gitconfig"
+echo "  * ~/.subversion/config"
+echo ""
+echo "Please review them before you begin working!"
+echo ""
 

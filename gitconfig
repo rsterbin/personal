@@ -1,11 +1,12 @@
 [user]
     name = Reha Sterbin
-    email = reha.sterbin@credativ.us
+    email = rsterbin@netapp.com
 
 [alias]
     st = status
     co = checkout
     ci = commit
+    netapp-profile = config user.email \"rsterbin@netapp.com\"
     credativ-profile = config user.email \"reha.sterbin@credativ.us\"
     personal-profile = config user.email \"reha@sterbinsoftware.com\"
     mediawiki-profile = config user.name \"rsterbin\"
