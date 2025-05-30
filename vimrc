@@ -142,9 +142,6 @@ set nowritebackup
 " Set up tabs to use ExuberantCTags
 set tags=TAGS;/
 
-" To lint (php files only) using :make
-set makeprg=php\ -l\ %
-
 " Set the error format for linting
 set errorformat=%m\ in\ %f\ on\ line\ %l
 
@@ -685,6 +682,12 @@ endif
 " Set up XML indentation on xml, html, and tpl files
 au FileType xml call XMLIndent()
 au FileType tpl call XMLIndent()
+
+" Linting
+autocmd FileType php let b:dispatch = 'php -l %'
+autocmd FileType python compiler pylint
+autocmd FileType python let b:dispatch = 'pylint %'
+
 
 " }}}
 
