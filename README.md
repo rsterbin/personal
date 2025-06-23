@@ -9,6 +9,7 @@ changes into the actual files.
 
 * [Create a new ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * [Add it to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+* [Make sure it works](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
 * Install Homebrew
 * Change the default shell to bash (`chsh`, then double check iterm2 and terminal app)
 
@@ -31,3 +32,4 @@ The standard settings are mostly fine, but there's a few tweaks I like to make.
     * Check silence bell
   * Keys tab:
     * Change bindings for next/previous tabs and their move tab versions to use control instead of command
+
