@@ -364,7 +364,9 @@ call pathogen#infect()
 if &diff
 else
     " Configuration: Put the explorer on the right side
-    let g:miniBufExplVSplit = 30
+    let g:miniBufExplVSplit = 25
+    " Configuration: Put the explorer on the top
+    " let g:miniBufExplSplitBelow = 0
     " Configuration: Don't report anything but serious bugs
     let g:miniBufExplorerDebugLevel = 0
     " Configuration: Set the debug mode to write to a file
@@ -382,6 +384,14 @@ else
     hi MBEChanged ctermfg=darkgreen
     hi MBEVisibleNormal ctermfg=magenta
     hi MBEVisibleChanged ctermfg=magenta
+endif
+
+" NERDTree configuration
+if &diff
+else
+    " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 endif
 
 " Projects
