@@ -81,6 +81,14 @@ prompt_color_repo_branch() {
   fi
 }
 
+# Fix missing prompt on pipenv --fancy
+prompt_venv() {
+    if [[ ${PIPENV_ACTIVE} == "1" && ${VIRTUAL_ENV_PROMPT} == "" && ${PIPENV_CUSTOM_VENV_NAME} ]]; then
+        echo "(${PIPENV_CUSTOM_VENV_NAME}) "
+    fi
+}
+
+
 # Git branch without color
 prompt_git_branch() {
   git rev-parse --abbrev-ref HEAD 2> /dev/null | sed -e 's/\(.*\)/ \1/'
@@ -124,19 +132,19 @@ fi
 # Prompt
 if [[ $OPEN_COLOR != "" && $personal_can_do_color == 'yes' ]]; then
     if [ "$personal_status_in_prompt" = yes ]; then
-        PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_color_repo_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
+        PS1="${OPEN_COLOR}\$(prompt_venv)$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_color_repo_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
     elif [ "$personal_branch_in_prompt" = yes ]; then
-        PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_git_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
+        PS1="${OPEN_COLOR}\$(prompt_venv)$? [\u@${PS_HOST} \w${CLOSE_COLOR}\$(prompt_git_branch)${OPEN_COLOR}]$ ${CLOSE_COLOR}"
     else
-        PS1="${OPEN_COLOR}$? [\u@${PS_HOST} \w]$ ${CLOSE_COLOR}"
+        PS1="${OPEN_COLOR}\$(prompt_venv)$? [\u@${PS_HOST} \w]$ ${CLOSE_COLOR}"
     fi
 else
     if [[ "$personal_status_in_prompt" = yes && $personal_can_do_color == 'yes' ]]; then
-        PS1="$? [\u@${PS_HOST} \w\$(prompt_color_repo_branch)]$ "
+        PS1="\$(prompt_venv)$? [\u@${PS_HOST} \w\$(prompt_color_repo_branch)]$ "
     elif [ "$personal_branch_in_prompt" = yes ]; then
-        PS1="$? [\u@${PS_HOST} \w\$(prompt_git_branch)]$ "
+        PS1="\$(prompt_venv)$? [\u@${PS_HOST} \w\$(prompt_git_branch)]$ "
     else
-        PS1="$? [\u@${PS_HOST} \w]$ "
+        PS1="\$(prompt_venv)$? [\u@${PS_HOST} \w]$ "
     fi
 fi
 export PS1
