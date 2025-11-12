@@ -11,6 +11,9 @@ if [[ $personal_os == "osx" ]]; then
     # Add Postgres.app command line tools
     export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
+    # Add vim with +python on
+    export PATH=/opt/homebrew/opt/vim/bin:$PATH
+
     # Add Go to the path
     export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
